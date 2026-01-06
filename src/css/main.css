@@ -6,6 +6,7 @@
 /* ============================================
    Component Imports
    ============================================ */
+@import url('./components/navigation.css');
 @import url('./components/hero.css');
 @import url('./components/service-times.css');
 @import url('./components/location-preview.css');
