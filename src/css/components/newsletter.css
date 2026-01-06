@@ -1,0 +1,418 @@
+/* ============================================
+   Newsletter Signup Component Styles
+   Mobile-first, BEM methodology, CSS Custom Properties
+   ============================================ */
+
+/* ============================================
+   Newsletter Component Variables
+   ============================================ */
+:root {
+  --newsletter-bg: var(--color-surface);
+  --newsletter-border: var(--color-border);
+  --newsletter-input-bg: var(--color-neutral-50);
+  --newsletter-input-border: var(--color-neutral-300);
+  --newsletter-input-focus: var(--color-primary-500);
+  --newsletter-button-bg: var(--color-primary-600);
+  --newsletter-button-hover: var(--color-primary-700);
+  --newsletter-error: hsl(0, 84%, 60%);
+  --newsletter-success: hsl(142, 71%, 45%);
+  --newsletter-loading: var(--color-neutral-400);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --newsletter-bg: var(--color-neutral-800);
+    --newsletter-input-bg: var(--color-neutral-900);
+    --newsletter-input-border: var(--color-neutral-600);
+  }
+}
+
+/* ============================================
+   Newsletter Container - BEM Structure
+   ============================================ */
+.newsletter {
+  padding: var(--space-xl) var(--space-md);
+  background-color: var(--newsletter-bg);
+  border: 1px solid var(--newsletter-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.newsletter__container {
+  max-width: var(--container-sm);
+  margin-inline: auto;
+}
+
+.newsletter__header {
+  margin-block-end: var(--space-lg);
+  text-align: center;
+}
+
+.newsletter__title {
+  margin-block-end: var(--space-sm);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+}
+
+.newsletter__description {
+  margin-block-end: 0;
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ============================================
+   Newsletter Form
+   ============================================ */
+.newsletter__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.newsletter__form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.newsletter__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.newsletter__label--required::after {
+  content: '*';
+  margin-inline-start: var(--space-xs);
+  color: var(--newsletter-error);
+}
+
+/* ============================================
+   Newsletter Input Field
+   ============================================ */
+.newsletter__input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background-color: var(--newsletter-input-bg);
+  border: 2px solid var(--newsletter-input-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.newsletter__input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.newsletter__input:hover {
+  border-color: var(--color-neutral-400);
+}
+
+.newsletter__input:focus {
+  outline: none;
+  border-color: var(--newsletter-input-focus);
+  box-shadow: 0 0 0 3px hsla(210, 100%, 55%, 0.1);
+}
+
+.newsletter__input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--color-neutral-100);
+}
+
+/* ============================================
+   Input Validation States
+   ============================================ */
+.newsletter__input--error {
+  border-color: var(--newsletter-error);
+}
+
+.newsletter__input--error:focus {
+  border-color: var(--newsletter-error);
+  box-shadow: 0 0 0 3px hsla(0, 84%, 60%, 0.1);
+}
+
+.newsletter__input--success {
+  border-color: var(--newsletter-success);
+}
+
+.newsletter__input--success:focus {
+  border-color: var(--newsletter-success);
+  box-shadow: 0 0 0 3px hsla(142, 71%, 45%, 0.1);
+}
+
+/* ============================================
+   Validation Messages
+   ============================================ */
+.newsletter__message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  border-radius: var(--radius-sm);
+  animation: slide-in 0.2s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.newsletter__message::before {
+  content: '';
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.newsletter__message--error {
+  color: var(--newsletter-error);
+  background-color: hsla(0, 84%, 60%, 0.1);
+  border: 1px solid hsla(0, 84%, 60%, 0.2);
+}
+
+.newsletter__message--error::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23dc2626'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.newsletter__message--success {
+  color: var(--newsletter-success);
+  background-color: hsla(142, 71%, 45%, 0.1);
+  border: 1px solid hsla(142, 71%, 45%, 0.2);
+}
+
+.newsletter__message--success::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2316a34a'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.newsletter__message--info {
+  color: var(--color-primary-700);
+  background-color: hsla(210, 100%, 55%, 0.1);
+  border: 1px solid hsla(210, 100%, 55%, 0.2);
+}
+
+.newsletter__message--info::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%232563eb'%3E%3Cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   Newsletter Submit Button
+   ============================================ */
+.newsletter__button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  background-color: var(--newsletter-button-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.newsletter__button:hover {
+  background-color: var(--newsletter-button-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.newsletter__button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.newsletter__button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.newsletter__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.newsletter__button:disabled:hover {
+  background-color: var(--newsletter-button-bg);
+  box-shadow: none;
+}
+
+/* ============================================
+   Loading State
+   ============================================ */
+.newsletter__button--loading {
+  pointer-events: none;
+}
+
+.newsletter__button--loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: inherit;
+  border-radius: inherit;
+}
+
+.newsletter__button--loading::before {
+  content: '';
+  position: absolute;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: var(--radius-full);
+  animation: spin 0.6s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.newsletter__button-text--loading {
+  opacity: 0;
+}
+
+/* ============================================
+   Privacy Notice
+   ============================================ */
+.newsletter__privacy {
+  margin-block-start: var(--space-md);
+  padding-block-start: var(--space-md);
+  border-block-start: 1px solid var(--newsletter-border);
+}
+
+.newsletter__privacy-text {
+  margin-block-end: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  text-align: center;
+}
+
+.newsletter__privacy-link {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.newsletter__privacy-link:hover {
+  color: var(--color-primary-700);
+}
+
+.newsletter__privacy-link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   Responsive Design - Tablet and Desktop
+   ============================================ */
+@media (min-width: 640px) {
+  .newsletter__form {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .newsletter__form-group {
+    flex: 1;
+  }
+
+  .newsletter__button {
+    flex-shrink: 0;
+    padding-inline: var(--space-xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .newsletter {
+    padding: var(--space-2xl) var(--space-xl);
+  }
+
+  .newsletter__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .newsletter__description {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ============================================
+   Feature Flag Support
+   ============================================ */
+.newsletter[data-feature-flag="off"] {
+  display: none;
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .newsletter {
+    display: none;
+  }
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .newsletter__message,
+  .newsletter__button {
+    animation: none;
+    transition: none;
+  }
+
+  .newsletter__button--loading::before {
+    animation: none;
+    border-top-color: white;
+  }
+}
+
+/* ============================================
+   High Contrast Mode Support
+   ============================================ */
+@media (prefers-contrast: high) {
+  .newsletter__input {
+    border-width: 3px;
+  }
+
+  .newsletter__button {
+    border: 2px solid currentColor;
+  }
+
+  .newsletter__message {
+    border-width: 2px;
+  }
+}
