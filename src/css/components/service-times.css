@@ -1,0 +1,386 @@
+/* ============================================
+   Service Times Widget Component Styles
+   Mobile-first, BEM methodology, Card-based layout
+   ============================================ */
+
+/* ============================================
+   Service Times Section Base
+   ============================================ */
+.service-times {
+  padding: var(--space-3xl) var(--space-md);
+  background-color: var(--color-background);
+}
+
+.service-times__container {
+  max-width: var(--container-lg);
+  margin-inline: auto;
+}
+
+.service-times__title {
+  margin-block-end: var(--space-xl);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.service-times__description {
+  max-width: 65ch;
+  margin-inline: auto;
+  margin-block-end: var(--space-2xl);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* ============================================
+   Service Times Grid Layout
+   ============================================ */
+.service-times__grid {
+  display: grid;
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+/* Mobile: Single column */
+@media (min-width: 640px) {
+  .service-times__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Tablet and up: Multi-column with max 3 columns */
+@media (min-width: 768px) {
+  .service-times__grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-times__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   Service Card Component
+   ============================================ */
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), 
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+  isolation: isolate;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-300);
+}
+
+.service-card:focus-within {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Disable hover effects for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .service-card {
+    transition: none;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Service Card Header
+   ============================================ */
+.service-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-block-end: var(--space-md);
+}
+
+.service-card__title {
+  flex: 1;
+  margin-block-end: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-primary-600);
+}
+
+.service-card__badge {
+  flex-shrink: 0;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  color: var(--color-primary-700);
+  background-color: var(--color-primary-100);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Dark mode badge adjustment */
+@media (prefers-color-scheme: dark) {
+  .service-card__badge {
+    color: var(--color-primary-300);
+    background-color: var(--color-primary-900);
+  }
+}
+
+/* ============================================
+   Service Card Time Display
+   ============================================ */
+.service-card__time-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-lg);
+  padding-block-end: var(--space-lg);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.service-card__time {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+.service-card__time::before {
+  content: '';
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232196F3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.service-card__day {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   Service Card Details
+   ============================================ */
+.service-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-lg);
+}
+
+.service-card__detail {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.service-card__detail::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-block-start: 0.25em;
+  background-color: var(--color-primary-500);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.service-card__detail--location::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+  background-size: 0.8em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--color-primary-500);
+}
+
+.service-card__detail--duration::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z'/%3E%3C/svg%3E");
+  background-size: 0.8em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--color-primary-500);
+}
+
+/* ============================================
+   Service Card Description
+   ============================================ */
+.service-card__description {
+  margin-block-end: var(--space-lg);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Service Card Actions
+   ============================================ */
+.service-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-block-start: auto;
+}
+
+.service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  color: var(--color-primary-600);
+  background-color: var(--color-primary-50);
+  border: 1px solid var(--color-primary-200);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.service-card__link:hover {
+  color: var(--color-primary-700);
+  background-color: var(--color-primary-100);
+  border-color: var(--color-primary-300);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.service-card__link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.service-card__link:active {
+  transform: translateY(0);
+}
+
+/* Dark mode link adjustment */
+@media (prefers-color-scheme: dark) {
+  .service-card__link {
+    color: var(--color-primary-300);
+    background-color: var(--color-primary-900);
+    border-color: var(--color-primary-800);
+  }
+
+  .service-card__link:hover {
+    color: var(--color-primary-200);
+    background-color: var(--color-primary-800);
+    border-color: var(--color-primary-700);
+  }
+}
+
+/* ============================================
+   Featured Service Card Variant
+   ============================================ */
+.service-card--featured {
+  background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
+  border-color: var(--color-primary-300);
+}
+
+.service-card--featured .service-card__title {
+  color: var(--color-primary-700);
+}
+
+@media (prefers-color-scheme: dark) {
+  .service-card--featured {
+    background: linear-gradient(135deg, var(--color-primary-900), var(--color-primary-800));
+    border-color: var(--color-primary-700);
+  }
+
+  .service-card--featured .service-card__title {
+    color: var(--color-primary-300);
+  }
+}
+
+/* ============================================
+   Empty State
+   ============================================ */
+.service-times__empty {
+  padding: var(--space-3xl) var(--space-md);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.service-times__empty-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-inline: auto;
+  margin-block-end: var(--space-md);
+  opacity: 0.5;
+}
+
+.service-times__empty-text {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   High Contrast Mode Support
+   ============================================ */
+@media (prefers-contrast: high) {
+  .service-card {
+    border-width: 2px;
+  }
+
+  .service-card__link {
+    border-width: 2px;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .service-times {
+    padding: var(--space-xl) 0;
+  }
+
+  .service-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid black;
+  }
+
+  .service-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .service-card__actions {
+    display: none;
+  }
+}
