@@ -1,0 +1,406 @@
+{
+  "ministry": {
+    "name": "Outreach Programs",
+    "tagline": "Serving Our Community with Love and Compassion",
+    "description": "Grace Fellowship Church is committed to making a positive impact in our community through various outreach programs. We believe in serving others as Christ served us, reaching out to those in need with practical help, spiritual support, and genuine care.",
+    "mission": "To demonstrate God's love through practical service, community engagement, and compassionate outreach to those in need, both locally and globally."
+  },
+  "initiatives": [
+    {
+      "id": "food-pantry",
+      "name": "Community Food Pantry",
+      "description": "Providing groceries and essential supplies to families facing food insecurity in our community.",
+      "schedule": "Every Saturday, 9:00 AM - 12:00 PM",
+      "location": "Church Fellowship Hall",
+      "contact": "foodpantry@gracefellowship.org",
+      "volunteersNeeded": true,
+      "image": "/images/outreach/food-pantry.jpg"
+    },
+    {
+      "id": "homeless-ministry",
+      "name": "Homeless Outreach Ministry",
+      "description": "Monthly street outreach providing meals, clothing, hygiene kits, and prayer to our homeless neighbors.",
+      "schedule": "First Saturday of each month, 6:00 PM - 9:00 PM",
+      "location": "Downtown Area",
+      "contact": "homeless@gracefellowship.org",
+      "volunteersNeeded": true,
+      "image": "/images/outreach/homeless-ministry.jpg"
+    },
+    {
+      "id": "prison-ministry",
+      "name": "Prison Ministry",
+      "description": "Bringing hope and spiritual support to incarcerated individuals through Bible studies, counseling, and reentry assistance.",
+      "schedule": "Weekly visits on Thursdays, 6:00 PM - 8:00 PM",
+      "location": "County Correctional Facility",
+      "contact": "prison@gracefellowship.org",
+      "volunteersNeeded": true,
+      "image": "/images/outreach/prison-ministry.jpg"
+    },
+    {
+      "id": "senior-care",
+      "name": "Senior Care & Companionship",
+      "description": "Visiting elderly community members in nursing homes and providing companionship, assistance, and spiritual encouragement.",
+      "schedule": "Tuesdays and Thursdays, 2:00 PM - 4:00 PM",
+      "location": "Various Nursing Homes",
+      "contact": "seniors@gracefellowship.org",
+      "volunteersNeeded": true,
+      "image": "/images/outreach/senior-care.jpg"
+    },
+    {
+      "id": "refugee-support",
+      "name": "Refugee Resettlement Support",
+      "description": "Helping refugee families integrate into our community by providing housing assistance, job training, English classes, and cultural orientation.",
+      "schedule": "Ongoing support with weekly meetings on Wednesdays, 7:00 PM",
+      "location": "Church Community Center",
+      "contact": "refugees@gracefellowship.org",
+      "volunteersNeeded": true,
+      "image": "/images/outreach/refugee-support.jpg"
+    },
+    {
+      "id": "back-to-school",
+      "name": "Back to School Drive",
+      "description": "Annual program providing school supplies, backpacks, and clothing to children from low-income families.",
+      "schedule": "August (Annual Event)",
+      "location": "Church Campus",
+      "contact": "backtoschool@gracefellowship.org",
+      "volunteersNeeded": true,
+      "image": "/images/outreach/back-to-school.jpg"
+    },
+    {
+      "id": "medical-missions",
+      "name": "Medical Mission Trips",
+      "description": "Annual international mission trips providing medical care, health education, and spiritual ministry to underserved communities.",
+      "schedule": "Summer (June-July) and Winter (January-February)",
+      "location": "International Destinations",
+      "contact": "missions@gracefellowship.org",
+      "volunteersNeeded": true,
+      "image": "/images/outreach/medical-missions.jpg"
+    },
+    {
+      "id": "community-garden",
+      "name": "Community Garden Project",
+      "description": "Growing fresh produce for our food pantry and teaching sustainable gardening practices to community members.",
+      "schedule": "Spring through Fall, Saturdays 8:00 AM - 11:00 AM",
+      "location": "Church Property - West Side",
+      "contact": "garden@gracefellowship.org",
+      "volunteersNeeded": true,
+      "image": "/images/outreach/community-garden.jpg"
+    }
+  ],
+  "impactMetrics": {
+    "year": 2024,
+    "summary": "Through God's grace and the dedication of our volunteers, we've been able to serve thousands in our community and beyond.",
+    "metrics": [
+      {
+        "category": "Food Security",
+        "value": 15000,
+        "unit": "meals served",
+        "description": "Meals provided through our food pantry and homeless outreach programs"
+      },
+      {
+        "category": "Families Served",
+        "value": 450,
+        "unit": "families",
+        "description": "Families receiving regular assistance through our various programs"
+      },
+      {
+        "category": "Volunteer Hours",
+        "value": 8500,
+        "unit": "hours",
+        "description": "Hours donated by our dedicated volunteer team"
+      },
+      {
+        "category": "School Supplies",
+        "value": 300,
+        "unit": "children",
+        "description": "Children equipped with backpacks and school supplies"
+      },
+      {
+        "category": "Prison Ministry",
+        "value": 75,
+        "unit": "individuals",
+        "description": "Incarcerated individuals receiving spiritual support and counseling"
+      },
+      {
+        "category": "Refugee Families",
+        "value": 12,
+        "unit": "families",
+        "description": "Refugee families assisted with resettlement and integration"
+      },
+      {
+        "category": "Medical Care",
+        "value": 2000,
+        "unit": "patients",
+        "description": "Patients treated during international medical mission trips"
+      },
+      {
+        "category": "Community Garden",
+        "value": 3500,
+        "unit": "pounds",
+        "description": "Pounds of fresh produce grown and distributed"
+      }
+    ],
+    "stories": [
+      {
+        "title": "From Homelessness to Hope",
+        "excerpt": "Through our homeless outreach ministry, we met James, who had been living on the streets for two years. With consistent support, job training, and spiritual guidance, James secured stable housing and employment. Today, he volunteers with our outreach team, helping others find the same hope he discovered.",
+        "image": "/images/outreach/story-james.jpg"
+      },
+      {
+        "title": "A Family's Fresh Start",
+        "excerpt": "The Ahmed family arrived as refugees with nothing but hope for a better future. Our refugee support program helped them find housing, learn English, and navigate their new community. Now, two years later, both parents are employed, their children are thriving in school, and they're active members of our church family.",
+        "image": "/images/outreach/story-ahmed.jpg"
+      },
+      {
+        "title": "Healing Through Service",
+        "excerpt": "Sarah joined our prison ministry after her own brother was incarcerated. Through weekly visits and Bible studies, she's witnessed incredible transformations. Several former inmates she mentored are now productive members of society, and three have joined our church community.",
+        "image": "/images/outreach/story-sarah.jpg"
+      }
+    ]
+  },
+  "volunteerOpportunities": [
+    {
+      "id": "food-pantry-volunteer",
+      "title": "Food Pantry Volunteer",
+      "description": "Help sort, organize, and distribute food to families in need. No experience necessary, just a willing heart to serve.",
+      "timeCommitment": "4 hours per month (one Saturday)",
+      "requirements": [
+        "Age 16 or older (younger with parent supervision)",
+        "Ability to lift up to 25 pounds",
+        "Reliable transportation"
+      ],
+      "training": "On-site orientation provided",
+      "contact": "foodpantry@gracefellowship.org"
+    },
+    {
+      "id": "homeless-outreach-team",
+      "title": "Homeless Outreach Team Member",
+      "description": "Join our team in serving meals, distributing supplies, and building relationships with our homeless neighbors.",
+      "timeCommitment": "One evening per month (first Saturday, 6-9 PM)",
+      "requirements": [
+        "Age 18 or older",
+        "Compassionate and non-judgmental attitude",
+        "Willingness to work in outdoor settings",
+        "Background check required"
+      ],
+      "training": "Required orientation and safety training",
+      "contact": "homeless@gracefellowship.org"
+    },
+    {
+      "id": "prison-ministry-mentor",
+      "title": "Prison Ministry Mentor",
+      "description": "Provide spiritual guidance, Bible study leadership, and reentry support to incarcerated individuals.",
+      "timeCommitment": "Weekly visits (Thursdays, 6-8 PM)",
+      "requirements": [
+        "Age 21 or older",
+        "Strong Christian faith and biblical knowledge",
+        "Excellent listening and communication skills",
+        "Background check and facility clearance required",
+        "Commitment to confidentiality"
+      ],
+      "training": "Comprehensive training program (4 weeks)",
+      "contact": "prison@gracefellowship.org"
+    },
+    {
+      "id": "senior-companion",
+      "title": "Senior Companion Visitor",
+      "description": "Brighten the day of elderly residents through visits, conversation, activities, and prayer.",
+      "timeCommitment": "2-4 hours per week",
+      "requirements": [
+        "Age 18 or older",
+        "Patient and compassionate demeanor",
+        "Good communication skills",
+        "Background check required"
+      ],
+      "training": "Orientation and sensitivity training provided",
+      "contact": "seniors@gracefellowship.org"
+    },
+    {
+      "id": "refugee-support-tutor",
+      "title": "English Language Tutor",
+      "description": "Help refugee families learn English and navigate American culture through one-on-one or small group tutoring.",
+      "timeCommitment": "2 hours per week",
+      "requirements": [
+        "Age 18 or older",
+        "Native or fluent English speaker",
+        "Patient and culturally sensitive",
+        "Teaching experience helpful but not required"
+      ],
+      "training": "ESL teaching methods workshop provided",
+      "contact": "refugees@gracefellowship.org"
+    },
+    {
+      "id": "medical-missions-team",
+      "title": "Medical Mission Team Member",
+      "description": "Join our international medical mission trips to provide healthcare and spiritual ministry to underserved communities.",
+      "timeCommitment": "1-2 weeks per trip (2 trips annually)",
+      "requirements": [
+        "Age 18 or older",
+        "Medical professionals (doctors, nurses, dentists) or support staff",
+        "Valid passport",
+        "Physical ability to work in challenging conditions",
+        "Fundraising participation",
+        "Background check required"
+      ],
+      "training": "Pre-trip orientation and cultural preparation",
+      "contact": "missions@gracefellowship.org"
+    },
+    {
+      "id": "garden-volunteer",
+      "title": "Community Garden Volunteer",
+      "description": "Help grow fresh produce for our food pantry while learning sustainable gardening practices.",
+      "timeCommitment": "3 hours per week (Saturdays, 8-11 AM)",
+      "requirements": [
+        "Age 12 or older (younger with parent supervision)",
+        "Willingness to work outdoors in various weather",
+        "No experience necessary"
+      ],
+      "training": "Ongoing gardening instruction provided",
+      "contact": "garden@gracefellowship.org"
+    },
+    {
+      "id": "administrative-support",
+      "title": "Outreach Administrative Support",
+      "description": "Provide behind-the-scenes support through data entry, scheduling, communications, and donor relations.",
+      "timeCommitment": "Flexible, 4-8 hours per month",
+      "requirements": [
+        "Age 18 or older",
+        "Computer proficiency",
+        "Strong organizational skills",
+        "Attention to detail"
+      ],
+      "training": "Software and systems training provided",
+      "contact": "outreach@gracefellowship.org"
+    }
+  ],
+  "donationNeeds": {
+    "description": "Your generous donations help us continue serving our community. All contributions are tax-deductible.",
+    "categories": [
+      {
+        "name": "Food Pantry Supplies",
+        "items": [
+          "Non-perishable food items",
+          "Canned goods (vegetables, fruits, proteins)",
+          "Rice, pasta, and grains",
+          "Baby food and formula",
+          "Personal hygiene products",
+          "Cleaning supplies",
+          "Paper products"
+        ],
+        "dropOffLocation": "Church Fellowship Hall",
+        "dropOffHours": "Monday-Friday, 9:00 AM - 5:00 PM"
+      },
+      {
+        "name": "Homeless Outreach",
+        "items": [
+          "New socks and underwear",
+          "Warm clothing (coats, hats, gloves)",
+          "Sleeping bags and blankets",
+          "Hygiene kits (soap, shampoo, toothbrush, toothpaste)",
+          "Backpacks",
+          "Gift cards for meals"
+        ],
+        "dropOffLocation": "Church Main Office",
+        "dropOffHours": "Monday-Friday, 9:00 AM - 5:00 PM"
+      },
+      {
+        "name": "School Supplies",
+        "items": [
+          "Backpacks",
+          "Notebooks and folders",
+          "Pens, pencils, and crayons",
+          "Calculators",
+          "School uniforms",
+          "Lunch boxes"
+        ],
+        "dropOffLocation": "Church Fellowship Hall",
+        "dropOffHours": "July-August, Monday-Friday, 9:00 AM - 5:00 PM"
+      },
+      {
+        "name": "Financial Contributions",
+        "description": "Monetary donations allow us to purchase specific items needed and support program operations.",
+        "methods": [
+          "Online giving through church website",
+          "Check payable to 'Grace Fellowship Church' (memo: Outreach)",
+          "Cash or check during Sunday services",
+          "Recurring monthly donations"
+        ],
+        "contact": "giving@gracefellowship.org"
+      }
+    ]
+  },
+  "gallery": [
+    {
+      "src": "/images/outreach/gallery/food-distribution.jpg",
+      "alt": "Volunteers distributing food at community food pantry",
+      "caption": "Saturday morning food pantry distribution"
+    },
+    {
+      "src": "/images/outreach/gallery/homeless-meal.jpg",
+      "alt": "Team serving meals to homeless community members",
+      "caption": "Monthly homeless outreach meal service"
+    },
+    {
+      "src": "/images/outreach/gallery/prison-bible-study.jpg",
+      "alt": "Prison ministry Bible study session",
+      "caption": "Weekly Bible study at county correctional facility"
+    },
+    {
+      "src": "/images/outreach/gallery/senior-visit.jpg",
+      "alt": "Volunteer visiting with elderly resident",
+      "caption": "Bringing joy to senior community members"
+    },
+    {
+      "src": "/images/outreach/gallery/refugee-family.jpg",
+      "alt": "Refugee family with support team",
+      "caption": "Welcoming refugee families to our community"
+    },
+    {
+      "src": "/images/outreach/gallery/back-to-school-event.jpg",
+      "alt": "Children receiving backpacks at back to school event",
+      "caption": "Annual back to school supply distribution"
+    },
+    {
+      "src": "/images/outreach/gallery/medical-mission.jpg",
+      "alt": "Medical team providing care during mission trip",
+      "caption": "Medical mission team serving in Guatemala"
+    },
+    {
+      "src": "/images/outreach/gallery/community-garden.jpg",
+      "alt": "Volunteers working in community garden",
+      "caption": "Growing fresh produce for our community"
+    },
+    {
+      "src": "/images/outreach/gallery/volunteer-team.jpg",
+      "alt": "Group photo of outreach volunteer team",
+      "caption": "Our dedicated outreach volunteer team"
+    },
+    {
+      "src": "/images/outreach/gallery/donation-sorting.jpg",
+      "alt": "Volunteers sorting donated items",
+      "caption": "Organizing donations for distribution"
+    },
+    {
+      "src": "/images/outreach/gallery/prayer-circle.jpg",
+      "alt": "Volunteers in prayer circle before outreach",
+      "caption": "Starting each outreach with prayer"
+    },
+    {
+      "src": "/images/outreach/gallery/community-impact.jpg",
+      "alt": "Community members receiving assistance",
+      "caption": "Making a difference in our community"
+    }
+  ],
+  "contact": {
+    "director": "Pastor Michael Rodriguez",
+    "email": "outreach@gracefellowship.org",
+    "phone": "(555) 123-4567",
+    "office": "Community Outreach Office, Building B",
+    "hours": "Monday-Friday, 9:00 AM - 5:00 PM"
+  },
+  "socialMedia": {
+    "facebook": "gracefellowshipoutreach",
+    "instagram": "@gfcoutreach",
+    "hashtag": "#GFCServes"
+  }
+}
