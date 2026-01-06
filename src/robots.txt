@@ -1,0 +1,38 @@
+# Grace Fellowship Church - Robots.txt
+# Search Engine Crawling Guidelines
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin and private areas (if they exist in the future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+
+# Disallow crawling of search result pages and form handlers
+Disallow: /search
+Disallow: /search/
+Disallow: /*.php$
+
+# Allow crawling of CSS and JavaScript files for proper rendering
+Allow: /css/
+Allow: /js/
+Allow: /*.css$
+Allow: /*.js$
+
+# Allow crawling of images
+Allow: /images/
+Allow: /img/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Sitemap location
+Sitemap: https://gracefellowshipchurch.org/sitemap.xml
+
+# Crawl-delay (optional, uncomment if needed to prevent server overload)
+# Crawl-delay: 1
