@@ -1,0 +1,240 @@
+{
+  "ministry": {
+    "name": "Youth Ministry",
+    "tagline": "Empowering the Next Generation",
+    "description": "Our Youth Ministry is dedicated to helping young people grow in their faith, build meaningful relationships, and discover their purpose in Christ. We provide a safe, welcoming environment where teens can explore their faith, ask tough questions, and develop into strong Christian leaders.",
+    "mission": "To equip and empower youth to know Christ, grow in faith, and serve others with passion and purpose.",
+    "ageRange": "6th-12th Grade",
+    "contactEmail": "youth@gracefellowship.org",
+    "contactPhone": "(555) 123-4567"
+  },
+  "leadership": [
+    {
+      "id": "leader-1",
+      "name": "Marcus Johnson",
+      "role": "Youth Pastor",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "bio": "Marcus has been serving in youth ministry for over 10 years. He is passionate about helping teens discover their identity in Christ and develop authentic faith.",
+      "email": "marcus@gracefellowship.org"
+    },
+    {
+      "id": "leader-2",
+      "name": "Sarah Mitchell",
+      "role": "Youth Ministry Coordinator",
+      "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+      "bio": "Sarah brings creativity and energy to our youth programs. She loves planning events and creating opportunities for students to connect with each other and God.",
+      "email": "sarah@gracefellowship.org"
+    },
+    {
+      "id": "leader-3",
+      "name": "David Chen",
+      "role": "Small Groups Leader",
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+      "bio": "David leads our small group ministry, helping students build deep, authentic relationships through weekly Bible studies and mentorship.",
+      "email": "david@gracefellowship.org"
+    },
+    {
+      "id": "leader-4",
+      "name": "Emily Rodriguez",
+      "role": "Worship Leader",
+      "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+      "bio": "Emily leads our youth worship team, helping students encounter God through music and creative expression.",
+      "email": "emily@gracefellowship.org"
+    }
+  ],
+  "schedule": {
+    "regular": [
+      {
+        "id": "schedule-1",
+        "name": "Sunday Youth Service",
+        "day": "Sunday",
+        "time": "10:30 AM - 12:00 PM",
+        "location": "Youth Center",
+        "description": "High-energy worship, relevant teaching, and community building for all youth."
+      },
+      {
+        "id": "schedule-2",
+        "name": "Wednesday Night Live",
+        "day": "Wednesday",
+        "time": "7:00 PM - 8:30 PM",
+        "location": "Youth Center",
+        "description": "Midweek gathering with games, worship, small groups, and Bible study."
+      },
+      {
+        "id": "schedule-3",
+        "name": "Small Groups",
+        "day": "Friday",
+        "time": "7:00 PM - 9:00 PM",
+        "location": "Various Homes",
+        "description": "Gender-specific small groups meeting in homes for deeper connection and discipleship."
+      }
+    ],
+    "special": [
+      {
+        "id": "special-1",
+        "name": "Summer Camp",
+        "date": "July 15-20, 2024",
+        "location": "Mountain View Retreat Center",
+        "description": "Week-long summer camp with worship, teaching, outdoor activities, and life-changing experiences."
+      },
+      {
+        "id": "special-2",
+        "name": "Fall Retreat",
+        "date": "October 12-14, 2024",
+        "location": "Lakeside Conference Center",
+        "description": "Weekend retreat focused on spiritual growth, team building, and fun activities."
+      },
+      {
+        "id": "special-3",
+        "name": "Mission Trip",
+        "date": "March 8-15, 2025",
+        "location": "Mexico",
+        "description": "International mission trip serving communities and sharing the love of Christ."
+      },
+      {
+        "id": "special-4",
+        "name": "Winter Ski Trip",
+        "date": "January 19-21, 2025",
+        "location": "Alpine Ski Resort",
+        "description": "Weekend ski trip combining outdoor adventure with spiritual growth and community."
+      }
+    ]
+  },
+  "gallery": [
+    {
+      "id": "gallery-1",
+      "url": "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=400&h=300&fit=crop",
+      "caption": "Youth worship night - experiencing God's presence together",
+      "alt": "Youth group worshiping with raised hands"
+    },
+    {
+      "id": "gallery-2",
+      "url": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=300&fit=crop",
+      "caption": "Summer camp 2023 - making memories and growing in faith",
+      "alt": "Group of teens at summer camp around campfire"
+    },
+    {
+      "id": "gallery-3",
+      "url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400&h=300&fit=crop",
+      "caption": "Small group Bible study - diving deep into God's Word",
+      "alt": "Small group of teens studying Bible together"
+    },
+    {
+      "id": "gallery-4",
+      "url": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=400&h=300&fit=crop",
+      "caption": "Community service project - serving our local community",
+      "alt": "Youth volunteers serving at community event"
+    },
+    {
+      "id": "gallery-5",
+      "url": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&h=300&fit=crop",
+      "caption": "Game night - building friendships through fun and laughter",
+      "alt": "Teens playing games and having fun together"
+    },
+    {
+      "id": "gallery-6",
+      "url": "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=400&h=300&fit=crop",
+      "caption": "Baptism celebration - public declaration of faith",
+      "alt": "Youth baptism celebration"
+    },
+    {
+      "id": "gallery-7",
+      "url": "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=400&h=300&fit=crop",
+      "caption": "Mission trip 2023 - serving and sharing God's love",
+      "alt": "Youth group on mission trip serving community"
+    },
+    {
+      "id": "gallery-8",
+      "url": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop",
+      "caption": "Leadership training - equipping the next generation of leaders",
+      "alt": "Youth leadership training session"
+    },
+    {
+      "id": "gallery-9",
+      "url": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&h=300&fit=crop",
+      "caption": "Fall retreat - growing closer to God and each other",
+      "alt": "Youth at fall retreat outdoor activities"
+    },
+    {
+      "id": "gallery-10",
+      "url": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop",
+      "caption": "Worship team practice - preparing to lead others in worship",
+      "alt": "Youth worship team practicing together"
+    },
+    {
+      "id": "gallery-11",
+      "url": "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&h=300&fit=crop",
+      "caption": "Pizza and prayer night - casual fellowship and spiritual growth",
+      "alt": "Youth group sharing pizza and fellowship"
+    },
+    {
+      "id": "gallery-12",
+      "url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop",
+      "caption": "Conference 2023 - inspired and equipped for ministry",
+      "alt": "Youth at conference worship session"
+    }
+  ],
+  "programs": [
+    {
+      "id": "program-1",
+      "name": "Discipleship Groups",
+      "description": "Small, gender-specific groups focused on spiritual growth, accountability, and biblical discipleship.",
+      "icon": "group"
+    },
+    {
+      "id": "program-2",
+      "name": "Worship Team",
+      "description": "Opportunities for musically gifted students to serve by leading worship for youth services.",
+      "icon": "music"
+    },
+    {
+      "id": "program-3",
+      "name": "Mission & Service",
+      "description": "Local and international mission opportunities to serve communities and share the Gospel.",
+      "icon": "volunteer"
+    },
+    {
+      "id": "program-4",
+      "name": "Leadership Development",
+      "description": "Training program equipping students to become leaders in their schools, communities, and church.",
+      "icon": "leadership"
+    }
+  ],
+  "resources": [
+    {
+      "id": "resource-1",
+      "title": "Parent Resources",
+      "description": "Tools and guides to help parents support their teen's spiritual journey.",
+      "link": "/resources/parents"
+    },
+    {
+      "id": "resource-2",
+      "title": "Bible Reading Plans",
+      "description": "Age-appropriate Bible reading plans designed for teens.",
+      "link": "/resources/bible-plans"
+    },
+    {
+      "id": "resource-3",
+      "title": "Event Calendar",
+      "description": "Stay updated on all upcoming youth events and activities.",
+      "link": "/events"
+    }
+  ],
+  "socialMedia": {
+    "instagram": "@graceyouth",
+    "facebook": "GraceFellowshipYouth",
+    "youtube": "GraceFellowshipYouth"
+  }
+}
