@@ -1,0 +1,33 @@
+{
+  "name": "grace-fellowship-church-website",
+  "version": "1.0.0",
+  "description": "Grace Fellowship Church Website - Semantic HTML5, BEM CSS, and modular JavaScript",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "live-server --port=8080 --open=index.html",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "postcss src/css/main.css -o dist/css/main.min.css",
+    "build:js": "terser src/js/main.js -o dist/js/main.min.js --compress --mangle",
+    "lint": "eslint src/js/**/*.js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.57.0",
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0",
+    "terser": "^5.26.0"
+  },
+  "keywords": [
+    "church",
+    "website",
+    "html5",
+    "bem",
+    "css",
+    "javascript"
+  ],
+  "author": "Grace Fellowship Church",
+  "license": "MIT"
+}
