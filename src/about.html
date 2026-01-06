@@ -19,6 +19,7 @@
   <link rel="canonical" href="https://gracefellowshipchurch.org/about">
   
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components/navigation.css">
   
   <script type="application/ld+json">
   {
@@ -36,25 +37,35 @@
     "email": "info@gracefellowshipchurch.org"
   }
   </script>
+  
+  <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
   
   <header role="banner">
-    <nav role="navigation" aria-label="Main navigation">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav__container">
         <div class="nav__logo">
           <a href="/" aria-label="Grace Fellowship Church Home">
             <span class="nav__logo-text">Grace Fellowship Church</span>
           </a>
         </div>
-        <ul class="nav__menu" role="list">
+        <button 
+          class="nav__toggle" 
+          aria-expanded="false" 
+          aria-controls="nav-menu"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="nav__toggle-icon"></span>
+        </button>
+        <ul id="nav-menu" class="nav__menu" role="list" aria-hidden="true">
           <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
           <li class="nav__item"><a href="/about.html" class="nav__link" aria-current="page">About</a></li>
           <li class="nav__item"><a href="/#services" class="nav__link">Services</a></li>
           <li class="nav__item"><a href="/#ministries" class="nav__link">Ministries</a></li>
           <li class="nav__item"><a href="/#events" class="nav__link">Events</a></li>
-          <li class="nav__item"><a href="/#contact" class="nav__link">Contact</a></li>
+          <li class="nav__item"><a href="/contact.html" class="nav__link">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -332,7 +343,7 @@
         <p class="cta__description">We would love to welcome you to Grace Fellowship Church. Come experience authentic worship, biblical teaching, and genuine community.</p>
         <div class="cta__buttons">
           <a href="/#services" class="cta__button cta__button--primary">Plan Your Visit</a>
-          <a href="/#contact" class="cta__button cta__button--secondary">Get In Touch</a>
+          <a href="/contact.html" class="cta__button cta__button--secondary">Get In Touch</a>
         </div>
       </div>
     </section>
