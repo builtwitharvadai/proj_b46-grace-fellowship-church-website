@@ -1,0 +1,304 @@
+{
+  "ministry": {
+    "name": "Women's Ministry",
+    "tagline": "Empowering Women in Faith and Fellowship",
+    "description": "Our Women's Ministry provides a nurturing environment where women of all ages can grow in their faith, build meaningful relationships, and discover their God-given purpose. Through Bible studies, fellowship events, and service opportunities, we encourage spiritual growth and authentic community.",
+    "vision": "To create a vibrant community of women who are deeply rooted in God's Word, passionately pursuing Christ, and actively serving others with love and grace.",
+    "mission": "We exist to help women develop a deeper relationship with Jesus Christ, connect with other women in authentic community, and discover their unique calling to serve God and others.",
+    "contact": {
+      "email": "womens@gracefellowship.org",
+      "phone": "(555) 123-4567"
+    }
+  },
+  "leadership": [
+    {
+      "id": "leader-1",
+      "name": "Sarah Mitchell",
+      "role": "Women's Ministry Director",
+      "bio": "Sarah has been leading our Women's Ministry for over 8 years. She is passionate about helping women discover their identity in Christ and empowering them to live out their faith boldly.",
+      "email": "sarah.mitchell@gracefellowship.org",
+      "phone": "(555) 123-4568",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "leader-2",
+      "name": "Jennifer Thompson",
+      "role": "Bible Study Coordinator",
+      "bio": "Jennifer coordinates our various Bible study groups and has a heart for helping women dive deep into God's Word. She has been teaching and leading studies for 12 years.",
+      "email": "jennifer.thompson@gracefellowship.org",
+      "phone": "(555) 123-4569",
+      "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "leader-3",
+      "name": "Rachel Anderson",
+      "role": "Events Coordinator",
+      "bio": "Rachel brings creativity and organization to our ministry events. She loves creating opportunities for women to connect, laugh, and grow together in faith.",
+      "email": "rachel.anderson@gracefellowship.org",
+      "phone": "(555) 123-4570",
+      "image": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "leader-4",
+      "name": "Lisa Martinez",
+      "role": "Mentorship Program Lead",
+      "bio": "Lisa oversees our mentorship program, pairing seasoned believers with younger women for spiritual guidance and friendship. She is passionate about intergenerational discipleship.",
+      "email": "lisa.martinez@gracefellowship.org",
+      "phone": "(555) 123-4571",
+      "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=400&h=400&fit=crop"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "testimonial-1",
+      "name": "Emily Roberts",
+      "quote": "The Women's Ministry has been a lifeline for me. I found not just friends, but sisters in Christ who have walked with me through my darkest seasons and celebrated my victories. This community has transformed my faith journey.",
+      "role": "Member since 2019",
+      "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "testimonial-2",
+      "name": "Maria Gonzalez",
+      "quote": "Through the Bible studies and mentorship program, I've grown more in my faith in two years than I had in the previous decade. The women here genuinely care and challenge me to pursue Christ wholeheartedly.",
+      "role": "Bible Study Participant",
+      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "testimonial-3",
+      "name": "Amanda Chen",
+      "quote": "As a young mom, I felt isolated and overwhelmed. The Women's Ministry provided a safe space where I could be vulnerable, receive prayer and support, and discover that I'm not alone in this journey of motherhood and faith.",
+      "role": "Young Mothers Group",
+      "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "testimonial-4",
+      "name": "Patricia Williams",
+      "quote": "At 65, I thought my best years of ministry were behind me. This ministry showed me that God still has incredible plans for my life. I'm now mentoring younger women and serving in ways I never imagined possible.",
+      "role": "Mentor & Prayer Team",
+      "image": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "testimonial-5",
+      "name": "Jessica Taylor",
+      "quote": "The annual women's retreat changed my life. God spoke to me in powerful ways, and I returned home with renewed purpose and passion for serving Him. I'm so grateful for this ministry's commitment to creating space for spiritual growth.",
+      "role": "Retreat Attendee",
+      "image": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "testimonial-6",
+      "name": "Sophia Patel",
+      "quote": "Coming from a different cultural background, I wasn't sure if I would fit in. But the women here welcomed me with open arms and helped me feel at home. This ministry celebrates diversity while uniting us in Christ.",
+      "role": "International Fellowship",
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop"
+    }
+  ],
+  "schedule": {
+    "regular": [
+      {
+        "id": "schedule-1",
+        "name": "Tuesday Morning Bible Study",
+        "day": "Tuesday",
+        "time": "9:30 AM - 11:30 AM",
+        "location": "Fellowship Hall",
+        "description": "In-depth Bible study with childcare provided. Currently studying the book of James.",
+        "childcare": true,
+        "recurring": "weekly"
+      },
+      {
+        "id": "schedule-2",
+        "name": "Thursday Evening Connection Group",
+        "day": "Thursday",
+        "time": "7:00 PM - 8:30 PM",
+        "location": "Room 201",
+        "description": "Casual fellowship and discussion for working women. Light refreshments provided.",
+        "childcare": false,
+        "recurring": "weekly"
+      },
+      {
+        "id": "schedule-3",
+        "name": "First Saturday Prayer Gathering",
+        "day": "First Saturday",
+        "time": "8:00 AM - 9:30 AM",
+        "location": "Prayer Chapel",
+        "description": "Monthly prayer gathering to intercede for our families, church, and community.",
+        "childcare": false,
+        "recurring": "monthly"
+      },
+      {
+        "id": "schedule-4",
+        "name": "Young Mothers Meetup",
+        "day": "Wednesday",
+        "time": "10:00 AM - 12:00 PM",
+        "location": "Children's Wing",
+        "description": "Support group for mothers with young children. Includes playtime for kids.",
+        "childcare": true,
+        "recurring": "weekly"
+      }
+    ],
+    "special": [
+      {
+        "id": "event-1",
+        "name": "Annual Women's Retreat",
+        "date": "2024-09-20",
+        "endDate": "2024-09-22",
+        "time": "Friday 6:00 PM - Sunday 2:00 PM",
+        "location": "Mountain View Retreat Center",
+        "description": "Three-day retreat featuring worship, teaching, workshops, and fellowship. Theme: 'Anchored in Hope'",
+        "cost": "$175 (scholarships available)",
+        "registration": "https://gracefellowship.org/womens-retreat"
+      },
+      {
+        "id": "event-2",
+        "name": "Mother-Daughter Tea",
+        "date": "2024-05-11",
+        "time": "2:00 PM - 4:00 PM",
+        "location": "Fellowship Hall",
+        "description": "Elegant tea party celebrating mothers and daughters of all ages. Includes games, testimonies, and special music.",
+        "cost": "$15 per person",
+        "registration": "https://gracefellowship.org/mother-daughter-tea"
+      },
+      {
+        "id": "event-3",
+        "name": "Christmas Cookie Exchange",
+        "date": "2024-12-14",
+        "time": "6:30 PM - 8:30 PM",
+        "location": "Fellowship Hall",
+        "description": "Bring 3 dozen cookies to exchange and enjoy an evening of fellowship, hot cocoa, and Christmas carols.",
+        "cost": "Free",
+        "registration": "https://gracefellowship.org/cookie-exchange"
+      },
+      {
+        "id": "event-4",
+        "name": "Spring Service Day",
+        "date": "2024-04-13",
+        "time": "9:00 AM - 3:00 PM",
+        "location": "Various Locations",
+        "description": "Serve our community through various projects including food bank, nursing home visits, and neighborhood cleanup.",
+        "cost": "Free",
+        "registration": "https://gracefellowship.org/service-day"
+      }
+    ]
+  },
+  "gallery": [
+    {
+      "id": "gallery-1",
+      "url": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop",
+      "caption": "Women's Bible Study - Growing together in God's Word",
+      "alt": "Group of women sitting in circle studying Bible together"
+    },
+    {
+      "id": "gallery-2",
+      "url": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=300&fit=crop",
+      "caption": "Annual Women's Retreat - Worship and fellowship in the mountains",
+      "alt": "Women worshiping together at mountain retreat"
+    },
+    {
+      "id": "gallery-3",
+      "url": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&h=300&fit=crop",
+      "caption": "Prayer Partners - Supporting one another through prayer",
+      "alt": "Two women praying together"
+    },
+    {
+      "id": "gallery-4",
+      "url": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=400&h=300&fit=crop",
+      "caption": "Community Service - Serving together at local food bank",
+      "alt": "Women volunteering at community food bank"
+    },
+    {
+      "id": "gallery-5",
+      "url": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&h=300&fit=crop",
+      "caption": "Mother-Daughter Tea - Celebrating special relationships",
+      "alt": "Mothers and daughters enjoying tea party together"
+    },
+    {
+      "id": "gallery-6",
+      "url": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop",
+      "caption": "Leadership Team - Dedicated women serving our ministry",
+      "alt": "Women's ministry leadership team meeting"
+    },
+    {
+      "id": "gallery-7",
+      "url": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop",
+      "caption": "Young Mothers Group - Finding support and friendship",
+      "alt": "Young mothers with children playing together"
+    },
+    {
+      "id": "gallery-8",
+      "url": "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=400&h=300&fit=crop",
+      "caption": "Worship Night - Praising God together in song",
+      "alt": "Women worshiping with raised hands"
+    },
+    {
+      "id": "gallery-9",
+      "url": "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400&h=300&fit=crop",
+      "caption": "Mentorship Program - Wisdom shared across generations",
+      "alt": "Older woman mentoring younger woman over coffee"
+    },
+    {
+      "id": "gallery-10",
+      "url": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=300&fit=crop",
+      "caption": "Christmas Celebration - Joy and fellowship during the holidays",
+      "alt": "Women celebrating Christmas together with decorations"
+    },
+    {
+      "id": "gallery-11",
+      "url": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&h=300&fit=crop",
+      "caption": "Small Group Fellowship - Building authentic community",
+      "alt": "Small group of women in discussion and fellowship"
+    },
+    {
+      "id": "gallery-12",
+      "url": "https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=800&h=600&fit=crop",
+      "thumbnail": "https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=400&h=300&fit=crop",
+      "caption": "Conference Attendance - Learning and growing together",
+      "alt": "Women attending Christian conference"
+    }
+  ],
+  "resources": [
+    {
+      "id": "resource-1",
+      "title": "Current Bible Study Guide",
+      "description": "Study guide and discussion questions for our current series on the book of James",
+      "type": "pdf",
+      "url": "/resources/james-study-guide.pdf"
+    },
+    {
+      "id": "resource-2",
+      "title": "Prayer Journal Template",
+      "description": "Downloadable prayer journal to help organize your prayer life",
+      "type": "pdf",
+      "url": "/resources/prayer-journal.pdf"
+    },
+    {
+      "id": "resource-3",
+      "title": "Recommended Reading List",
+      "description": "Books recommended by our leadership team for spiritual growth",
+      "type": "pdf",
+      "url": "/resources/reading-list.pdf"
+    },
+    {
+      "id": "resource-4",
+      "title": "Mentorship Program Guide",
+      "description": "Information about our mentorship program and how to get involved",
+      "type": "pdf",
+      "url": "/resources/mentorship-guide.pdf"
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2024-01-06T00:00:00Z",
+    "version": "1.0.0",
+    "contentManager": "Sarah Mitchell",
+    "reviewSchedule": "quarterly"
+  }
+}
