@@ -12,12 +12,16 @@
   <meta property="og:description" content="A welcoming Christian community in Nigeria. Join us for worship, fellowship, and spiritual growth.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gracefellowshipchurch.org">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1200&auto=format&fit=crop">
   
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   
   <link rel="canonical" href="https://gracefellowshipchurch.org">
   
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components/hero.css">
+  <link rel="stylesheet" href="css/components/service-times.css">
+  <link rel="stylesheet" href="css/components/location-preview.css">
   
   <script type="module" src="js/main.js" defer></script>
 </head>
@@ -49,6 +53,10 @@
       <div class="hero__container">
         <h1 id="hero-title" class="hero__title">Welcome to Grace Fellowship Church</h1>
         <p class="hero__subtitle">A place where faith, hope, and love come together</p>
+        <div class="hero__cta">
+          <a href="#services" class="hero__button hero__button--primary">View Service Times</a>
+          <a href="#contact" class="hero__button hero__button--secondary">Get In Touch</a>
+        </div>
       </div>
     </section>
     
@@ -59,18 +67,99 @@
       </div>
     </section>
     
-    <section id="services" class="services" aria-labelledby="services-title">
-      <div class="services__container">
-        <h2 id="services-title" class="services__title">Service Times</h2>
-        <div class="services__list">
-          <article class="service-card">
-            <h3 class="service-card__title">Sunday Worship</h3>
-            <time class="service-card__time" datetime="09:00">9:00 AM</time>
-          </article>
-          <article class="service-card">
-            <h3 class="service-card__title">Midweek Service</h3>
-            <time class="service-card__time" datetime="18:00">6:00 PM Wednesday</time>
-          </article>
+    <section id="services" class="service-times" aria-labelledby="services-title">
+      <div class="service-times__container">
+        <h2 id="services-title" class="service-times__title">Service Times</h2>
+        <p class="service-times__description">Join us for worship and fellowship at our weekly services</p>
+        <ul class="service-times__grid" role="list">
+          <li>
+            <article class="service-card service-card--featured">
+              <div class="service-card__header">
+                <h3 class="service-card__title">Sunday Worship</h3>
+                <span class="service-card__badge">Main Service</span>
+              </div>
+              <div class="service-card__time-wrapper">
+                <time class="service-card__time" datetime="09:00">9:00 AM</time>
+                <span class="service-card__day">Every Sunday</span>
+              </div>
+              <div class="service-card__details">
+                <p class="service-card__detail service-card__detail--location">Main Sanctuary</p>
+                <p class="service-card__detail service-card__detail--duration">Approximately 2 hours</p>
+              </div>
+              <p class="service-card__description">Join us for our main worship service featuring inspiring messages, uplifting music, and fellowship.</p>
+            </article>
+          </li>
+          <li>
+            <article class="service-card">
+              <div class="service-card__header">
+                <h3 class="service-card__title">Midweek Service</h3>
+              </div>
+              <div class="service-card__time-wrapper">
+                <time class="service-card__time" datetime="18:00">6:00 PM</time>
+                <span class="service-card__day">Every Wednesday</span>
+              </div>
+              <div class="service-card__details">
+                <p class="service-card__detail service-card__detail--location">Fellowship Hall</p>
+                <p class="service-card__detail service-card__detail--duration">Approximately 1.5 hours</p>
+              </div>
+              <p class="service-card__description">Midweek Bible study and prayer service for spiritual growth and community connection.</p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+    
+    <section id="location" class="location-preview" aria-labelledby="location-title">
+      <div class="location-preview__container">
+        <h2 id="location-title" class="location-preview__title">Visit Us</h2>
+        <p class="location-preview__description">We're located in the heart of Lagos and would love to welcome you</p>
+        <div class="location-preview__card">
+          <div class="location-preview__map-wrapper">
+            <div class="location-preview__map-placeholder">
+              <span class="location-preview__map-text">Map preview - Click for directions</span>
+            </div>
+            <a href="https://maps.google.com/?q=Grace+Fellowship+Church+Lagos+Nigeria" 
+               class="location-preview__map-link"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Open location in Google Maps">
+              View on Map
+            </a>
+          </div>
+          <div class="location-preview__info">
+            <div class="location-preview__address">
+              <div class="location-preview__address-header">
+                <span class="location-preview__address-icon" aria-hidden="true"></span>
+                <h3 class="location-preview__address-title">Our Location</h3>
+              </div>
+              <address class="location-preview__address-content">
+                <span class="location-preview__address-line">Grace Fellowship Church</span>
+                <span class="location-preview__address-line">Lagos, Nigeria</span>
+              </address>
+            </div>
+            <div class="location-preview__contact">
+              <div class="location-preview__contact-item">
+                <span class="location-preview__contact-icon location-preview__contact-icon--phone" aria-hidden="true"></span>
+                <div class="location-preview__contact-details">
+                  <span class="location-preview__contact-label">Phone</span>
+                  <a href="tel:+234" class="location-preview__contact-link">+234 XXX XXX XXXX</a>
+                </div>
+              </div>
+              <div class="location-preview__contact-item">
+                <span class="location-preview__contact-icon location-preview__contact-icon--email" aria-hidden="true"></span>
+                <div class="location-preview__contact-details">
+                  <span class="location-preview__contact-label">Email</span>
+                  <a href="mailto:info@gracefellowshipchurch.org" class="location-preview__contact-link">info@gracefellowshipchurch.org</a>
+                </div>
+              </div>
+            </div>
+            <a href="https://maps.google.com/?q=Grace+Fellowship+Church+Lagos+Nigeria" 
+               class="location-preview__directions"
+               target="_blank"
+               rel="noopener noreferrer">
+              Get Directions
+            </a>
+          </div>
         </div>
       </div>
     </section>
