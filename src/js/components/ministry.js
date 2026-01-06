@@ -8,10 +8,12 @@
  * - Managing photo gallery with lightbox functionality
  * - Progressive enhancement for better performance
  * - Testimonials carousel integration for women's ministry
- * - Multi-ministry support (youth, women's, men's, children's)
+ * - Multi-ministry support (youth, women's, men's, children's, outreach)
+ * - Impact metrics visualization for outreach ministry
+ * - Volunteer opportunity handling for outreach ministry
  * 
  * @module components/ministry
- * @generated-from: task-id:TASK-010
+ * @generated-from: task-id:TASK-010,TASK-011
  * @modifies: ministry.js
  * @dependencies: [lazy-loading]
  */
@@ -50,6 +52,11 @@ const SELECTORS = Object.freeze({
   TESTIMONIALS_INDICATORS: '.testimonials__indicators',
   TESTIMONIALS_PREV: '.testimonials__button--prev',
   TESTIMONIALS_NEXT: '.testimonials__button--next',
+  IMPACT_METRICS_CONTAINER: '[data-impact-metrics]',
+  IMPACT_METRIC_NUMBER: '[data-metric-number]',
+  IMPACT_STORIES_GRID: '[data-impact-stories]',
+  VOLUNTEER_OPPORTUNITIES_GRID: '[data-volunteer-opportunities]',
+  DONATION_NEEDS_GRID: '[data-donation-needs]',
 });
 
 const CLASSES = Object.freeze({
@@ -65,6 +72,7 @@ const MINISTRY_TYPES = Object.freeze({
   WOMENS: 'womens',
   MENS: 'mens',
   CHILDRENS: 'childrens',
+  OUTREACH: 'outreach',
 });
 
 // ============================================================================
@@ -85,6 +93,7 @@ const state = {
     isPaused: false,
   },
   currentMinistryType: null,
+  impactMetricsAnimated: new Set(),
 };
 
 // ============================================================================
@@ -204,8 +213,25 @@ function detectMinistryType() {
   if (filename.includes('childrens') || filename.includes('children')) {
     return MINISTRY_TYPES.CHILDRENS;
   }
+  if (filename.includes('outreach')) {
+    return MINISTRY_TYPES.OUTREACH;
+  }
   
   return MINISTRY_TYPES.YOUTH;
+}
+
+/**
+ * Formats a number with locale-specific formatting
+ * @param {number} value - Number to format
+ * @returns {string} Formatted number string
+ */
+function formatNumber(value) {
+  try {
+    return new Intl.NumberFormat('en-US').format(Math.round(value));
+  } catch (error) {
+    log('error', 'Number formatting failed', { error: error.message });
+    return String(Math.round(value));
+  }
 }
 
 // ============================================================================
@@ -545,8 +571,8 @@ function renderGallery(gallery, container) {
     img.loading = 'lazy';
     img.width = 400;
     img.height = 300;
-    img.dataset.src = item.thumbnail || item.image;
-    img.dataset.fullSrc = item.url || item.image;
+    img.dataset.src = item.thumbnail || item.image || item.src;
+    img.dataset.fullSrc = item.url || item.image || item.src;
 
     const caption = document.createElement('span');
     caption.className = 'gallery-item__caption';
@@ -651,6 +677,206 @@ function renderTestimonials(testimonials, trackContainer, indicatorsContainer) {
   state.testimonialsState.currentIndex = 0;
 
   log('info', 'Testimonials rendered', { count: testimonials.length });
+}
+
+// ============================================================================
+// OUTREACH-SPECIFIC RENDERING
+// ============================================================================
+
+/**
+ * Renders impact metrics with animated counters
+ * @param {Object} impactMetrics - Impact metrics data
+ * @param {Element} container - Container element
+ */
+function renderImpactMetrics(impactMetrics, container) {
+  if (!container || !impactMetrics || !Array.isArray(impactMetrics.metrics)) {
+    log('warn', 'Cannot render impact metrics - invalid data or container');
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  impactMetrics.metrics.forEach((metric) => {
+    const article = document.createElement('article');
+    article.className = 'schedule-card';
+    article.setAttribute('data-metric-card', '');
+
+    const number = document.createElement('h3');
+    number.className = 'schedule-card__name';
+    number.setAttribute('data-metric-number', '');
+    number.setAttribute('data-target-value', metric.value);
+    number.textContent = '0';
+
+    const category = document.createElement('p');
+    category.className = 'schedule-card__time';
+    category.innerHTML = `<strong>${escapeHTML(metric.category)}</strong>`;
+
+    const description = document.createElement('p');
+    description.className = 'schedule-card__description';
+    description.textContent = metric.description;
+
+    article.appendChild(number);
+    article.appendChild(category);
+    article.appendChild(description);
+    fragment.appendChild(article);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(fragment);
+
+  setupImpactMetricsObserver(container);
+
+  log('info', 'Impact metrics rendered', { count: impactMetrics.metrics.length });
+}
+
+/**
+ * Renders impact stories
+ * @param {Array} stories - Array of impact story objects
+ * @param {Element} container - Container element
+ */
+function renderImpactStories(stories, container) {
+  if (!container || !Array.isArray(stories) || stories.length === 0) {
+    log('warn', 'Cannot render impact stories - invalid data or container');
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  stories.forEach((story) => {
+    const article = document.createElement('article');
+    article.className = 'leader-card';
+
+    const content = document.createElement('div');
+    content.className = 'leader-card__content';
+
+    const title = document.createElement('h3');
+    title.className = 'leader-card__name';
+    title.textContent = story.title;
+
+    const excerpt = document.createElement('p');
+    excerpt.className = 'leader-card__bio';
+    excerpt.textContent = story.excerpt;
+
+    content.appendChild(title);
+    content.appendChild(excerpt);
+    article.appendChild(content);
+    fragment.appendChild(article);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(fragment);
+
+  log('info', 'Impact stories rendered', { count: stories.length });
+}
+
+/**
+ * Renders volunteer opportunities
+ * @param {Array} opportunities - Array of volunteer opportunity objects
+ * @param {Element} container - Container element
+ */
+function renderVolunteerOpportunities(opportunities, container) {
+  if (!container || !Array.isArray(opportunities) || opportunities.length === 0) {
+    log('warn', 'Cannot render volunteer opportunities - invalid data or container');
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  opportunities.forEach((opportunity) => {
+    const article = document.createElement('article');
+    article.className = 'schedule-card';
+    article.setAttribute('data-opportunity-card', '');
+    article.setAttribute('data-opportunity-id', opportunity.id);
+
+    const title = document.createElement('h3');
+    title.className = 'schedule-card__name';
+    title.textContent = opportunity.title;
+
+    const details = document.createElement('div');
+    details.className = 'schedule-card__details';
+
+    const timeCommitment = document.createElement('p');
+    timeCommitment.className = 'schedule-card__time';
+    timeCommitment.innerHTML = `<strong>Time Commitment:</strong> ${escapeHTML(opportunity.timeCommitment)}`;
+
+    details.appendChild(timeCommitment);
+
+    const description = document.createElement('p');
+    description.className = 'schedule-card__description';
+    description.textContent = opportunity.description;
+
+    article.appendChild(title);
+    article.appendChild(details);
+    article.appendChild(description);
+    fragment.appendChild(article);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(fragment);
+
+  log('info', 'Volunteer opportunities rendered', { count: opportunities.length });
+}
+
+/**
+ * Renders donation needs
+ * @param {Object} donationNeeds - Donation needs data
+ * @param {Element} container - Container element
+ */
+function renderDonationNeeds(donationNeeds, container) {
+  if (!container || !donationNeeds || !Array.isArray(donationNeeds.categories)) {
+    log('warn', 'Cannot render donation needs - invalid data or container');
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  donationNeeds.categories.forEach((category) => {
+    const article = document.createElement('article');
+    article.className = 'leader-card';
+
+    const content = document.createElement('div');
+    content.className = 'leader-card__content';
+
+    const name = document.createElement('h3');
+    name.className = 'leader-card__name';
+    name.textContent = category.name;
+
+    const description = document.createElement('p');
+    description.className = 'leader-card__bio';
+
+    if (category.items && Array.isArray(category.items)) {
+      description.textContent = category.items.join(', ');
+    } else if (category.description) {
+      description.textContent = category.description;
+    }
+
+    const location = document.createElement('p');
+    location.className = 'leader-card__role';
+
+    if (category.dropOffLocation) {
+      location.textContent = `Drop-off: ${category.dropOffLocation}, ${category.dropOffHours}`;
+    } else if (category.contact) {
+      const contactLink = document.createElement('a');
+      contactLink.className = 'leader-card__email';
+      contactLink.href = `mailto:${category.contact}`;
+      contactLink.textContent = category.contact;
+      location.appendChild(contactLink);
+    }
+
+    content.appendChild(name);
+    content.appendChild(description);
+    if (location.textContent || location.children.length > 0) {
+      content.appendChild(location);
+    }
+
+    article.appendChild(content);
+    fragment.appendChild(article);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(fragment);
+
+  log('info', 'Donation needs rendered', { count: donationNeeds.categories.length });
 }
 
 // ============================================================================
@@ -860,7 +1086,7 @@ function updateGalleryModal() {
     return;
   }
 
-  modalImage.src = image.url || image.image;
+  modalImage.src = image.url || image.image || image.src;
   modalImage.alt = escapeHTML(image.alt);
   modalCaption.textContent = image.caption;
 
@@ -984,6 +1210,82 @@ function setupImageObserver(container) {
   log('info', 'Image observer setup', { imageCount: images.length });
 }
 
+/**
+ * Sets up intersection observer for impact metrics animation
+ * @param {Element} container - Container to observe metrics in
+ */
+function setupImpactMetricsObserver(container) {
+  if (!container) {
+    return;
+  }
+
+  const metricsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const metricCard = entry.target;
+          const numberElement = querySelector(SELECTORS.IMPACT_METRIC_NUMBER, metricCard);
+
+          if (numberElement && !state.impactMetricsAnimated.has(numberElement)) {
+            animateMetricCounter(numberElement);
+            state.impactMetricsAnimated.add(numberElement);
+            metricsObserver.unobserve(metricCard);
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px',
+    }
+  );
+
+  const metricCards = querySelectorAll('[data-metric-card]', container);
+  metricCards.forEach((card) => {
+    metricsObserver.observe(card);
+  });
+
+  log('info', 'Impact metrics observer setup', { metricCount: metricCards.length });
+}
+
+/**
+ * Animates a metric counter from 0 to target value
+ * @param {Element} element - Counter element
+ */
+function animateMetricCounter(element) {
+  const targetValue = parseInt(element.getAttribute('data-target-value'), 10);
+
+  if (isNaN(targetValue)) {
+    log('warn', 'Invalid target value for metric counter');
+    return;
+  }
+
+  const duration = 2000;
+  const startTime = performance.now();
+
+  function easeOutQuart(t) {
+    return 1 - Math.pow(1 - t, 4);
+  }
+
+  function animate(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easedProgress = easeOutQuart(progress);
+    const currentValue = Math.round(targetValue * easedProgress);
+
+    element.textContent = formatNumber(currentValue);
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      element.textContent = formatNumber(targetValue);
+      log('info', 'Metric counter animation completed', { targetValue });
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
 // ============================================================================
 // MINISTRY-SPECIFIC FEATURES
 // ============================================================================
@@ -1038,8 +1340,65 @@ function normalizeMinistryData(data, ministryType) {
       }));
     }
   }
+
+  if (ministryType === MINISTRY_TYPES.OUTREACH) {
+    if (data.initiatives && !normalized.schedule) {
+      normalized.schedule = {
+        regular: data.initiatives.map((initiative) => ({
+          id: initiative.id,
+          name: initiative.name,
+          day: initiative.schedule,
+          time: '',
+          location: initiative.location,
+          description: initiative.description,
+        })),
+        special: [],
+      };
+    }
+
+    if (data.gallery && Array.isArray(data.gallery)) {
+      normalized.gallery = data.gallery.map((item) => ({
+        ...item,
+        image: item.src || item.image,
+        url: item.src || item.url || item.image,
+        thumbnail: item.src || item.thumbnail || item.image,
+      }));
+    }
+  }
   
   return normalized;
+}
+
+/**
+ * Initializes outreach-specific features
+ * @param {Object} data - Ministry data
+ */
+function initOutreachFeatures(data) {
+  if (!data) {
+    return;
+  }
+
+  const impactMetricsContainer = querySelector(SELECTORS.IMPACT_METRICS_CONTAINER);
+  if (impactMetricsContainer && data.impactMetrics) {
+    renderImpactMetrics(data.impactMetrics, impactMetricsContainer);
+  }
+
+  const impactStoriesContainer = querySelector('[data-impact-stories]');
+  if (impactStoriesContainer && data.impactMetrics?.stories) {
+    renderImpactStories(data.impactMetrics.stories, impactStoriesContainer);
+  }
+
+  const volunteerOpportunitiesContainer = querySelector('[data-volunteer-opportunities]');
+  if (volunteerOpportunitiesContainer && data.volunteerOpportunities) {
+    renderVolunteerOpportunities(data.volunteerOpportunities, volunteerOpportunitiesContainer);
+  }
+
+  const donationNeedsContainer = querySelector('[data-donation-needs]');
+  if (donationNeedsContainer && data.donationNeeds) {
+    renderDonationNeeds(data.donationNeeds, donationNeedsContainer);
+  }
+
+  log('info', 'Outreach-specific features initialized');
 }
 
 // ============================================================================
@@ -1090,6 +1449,10 @@ async function initMinistryPage(ministryName = null) {
       initTestimonialsCarousel();
     }
 
+    if (detectedType === MINISTRY_TYPES.OUTREACH) {
+      initOutreachFeatures(normalizedData);
+    }
+
     log('info', 'Ministry page initialized successfully', { ministryType: detectedType });
   } catch (error) {
     log('error', 'Ministry page initialization failed', {
@@ -1119,6 +1482,7 @@ function cleanup() {
   state.ministryData = null;
   state.currentGalleryIndex = 0;
   state.currentMinistryType = null;
+  state.impactMetricsAnimated.clear();
   state.testimonialsState = {
     currentIndex: 0,
     totalTestimonials: 0,
@@ -1146,4 +1510,8 @@ export {
   closeGalleryModal,
   detectMinistryType,
   applyMinistryTheming,
+  renderImpactMetrics,
+  renderImpactStories,
+  renderVolunteerOpportunities,
+  renderDonationNeeds,
 };
