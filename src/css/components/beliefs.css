@@ -1,0 +1,177 @@
+/* ============================================
+   Grace Fellowship Church - Beliefs Component
+   Core beliefs section with structured list presentation
+   ============================================ */
+
+/* ============================================
+   Beliefs Section - BEM Structure
+   ============================================ */
+.beliefs {
+  padding: var(--space-3xl) var(--space-md);
+  background-color: var(--color-background);
+}
+
+.beliefs__container {
+  max-width: var(--container-lg);
+  margin-inline: auto;
+}
+
+.beliefs__title {
+  margin-block-end: var(--space-md);
+  text-align: center;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+}
+
+.beliefs__description {
+  max-width: 65ch;
+  margin-inline: auto;
+  margin-block-end: var(--space-2xl);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Beliefs Grid Layout
+   ============================================ */
+.beliefs__grid {
+  display: grid;
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .beliefs__grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .beliefs__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   Belief Card Component - BEM Structure
+   ============================================ */
+.belief-card {
+  position: relative;
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.belief-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-200);
+}
+
+.belief-card:focus-within {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-color: var(--color-primary-300);
+}
+
+/* ============================================
+   Belief Card Content
+   ============================================ */
+.belief-card__title {
+  margin-block-end: var(--space-md);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-600);
+  line-height: var(--line-height-tight);
+}
+
+.belief-card__description {
+  margin-block-end: 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Accessibility Enhancements
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .belief-card {
+    transition: none;
+  }
+
+  .belief-card:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .belief-card {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+  }
+
+  .belief-card:hover {
+    border-color: var(--color-primary-700);
+  }
+
+  .belief-card__title {
+    color: var(--color-primary-400);
+  }
+}
+
+/* ============================================
+   High Contrast Mode Support
+   ============================================ */
+@media (prefers-contrast: high) {
+  .belief-card {
+    border-width: 2px;
+  }
+
+  .belief-card__title {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .beliefs {
+    padding: var(--space-lg) 0;
+  }
+
+  .beliefs__grid {
+    display: block;
+  }
+
+  .belief-card {
+    page-break-inside: avoid;
+    margin-block-end: var(--space-md);
+    box-shadow: none;
+    border: 1px solid black;
+  }
+
+  .belief-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .belief-card__title {
+    color: black;
+  }
+
+  .belief-card__description {
+    color: black;
+  }
+}
