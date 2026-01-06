@@ -24,6 +24,12 @@
 @import url('./components/testimonials.css');
 
 /* ============================================
+   Theme Imports
+   ============================================ */
+@import url('./themes/mens.css');
+@import url('./themes/childrens.css');
+
+/* ============================================
    Utility Imports
    ============================================ */
 @import url('./utils/accessibility.css');

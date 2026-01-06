@@ -8,10 +8,11 @@
  * - Managing photo gallery with lightbox functionality
  * - Progressive enhancement for better performance
  * - Testimonials carousel integration for women's ministry
+ * - Multi-ministry support (youth, women's, men's, children's)
  * 
  * @module components/ministry
- * @generated-from: task-id:TASK-008
- * @modifies: none
+ * @generated-from: task-id:TASK-010
+ * @modifies: ministry.js
  * @dependencies: [lazy-loading]
  */
 
@@ -59,6 +60,13 @@ const CLASSES = Object.freeze({
   MODAL_OPEN: 'modal--open',
 });
 
+const MINISTRY_TYPES = Object.freeze({
+  YOUTH: 'youth',
+  WOMENS: 'womens',
+  MENS: 'mens',
+  CHILDRENS: 'childrens',
+});
+
 // ============================================================================
 // STATE MANAGEMENT
 // ============================================================================
@@ -76,6 +84,7 @@ const state = {
     autoRotateTimer: null,
     isPaused: false,
   },
+  currentMinistryType: null,
 };
 
 // ============================================================================
@@ -173,6 +182,30 @@ function escapeHTML(text) {
     "'": '&#039;',
   };
   return String(text).replace(/[&<>"']/g, (char) => map[char]);
+}
+
+/**
+ * Detects ministry type from current page URL
+ * @returns {string} Ministry type identifier
+ */
+function detectMinistryType() {
+  const path = window.location.pathname;
+  const filename = path.substring(path.lastIndexOf('/') + 1);
+  
+  if (filename.includes('youth')) {
+    return MINISTRY_TYPES.YOUTH;
+  }
+  if (filename.includes('womens') || filename.includes('women')) {
+    return MINISTRY_TYPES.WOMENS;
+  }
+  if (filename.includes('mens') || filename.includes('men')) {
+    return MINISTRY_TYPES.MENS;
+  }
+  if (filename.includes('childrens') || filename.includes('children')) {
+    return MINISTRY_TYPES.CHILDRENS;
+  }
+  
+  return MINISTRY_TYPES.YOUTH;
 }
 
 // ============================================================================
@@ -512,8 +545,8 @@ function renderGallery(gallery, container) {
     img.loading = 'lazy';
     img.width = 400;
     img.height = 300;
-    img.dataset.src = item.thumbnail;
-    img.dataset.fullSrc = item.url;
+    img.dataset.src = item.thumbnail || item.image;
+    img.dataset.fullSrc = item.url || item.image;
 
     const caption = document.createElement('span');
     caption.className = 'gallery-item__caption';
@@ -596,7 +629,7 @@ function renderTestimonials(testimonials, trackContainer, indicatorsContainer) {
   if (indicatorsContainer) {
     const indicatorsFragment = document.createDocumentFragment();
 
-    testimonials.forEach((_, index) => {
+    testimonials.forEach((_testimonial, index) => {
       const button = document.createElement('button');
       button.className = 'testimonials__indicator';
       button.setAttribute('role', 'tab');
@@ -827,7 +860,7 @@ function updateGalleryModal() {
     return;
   }
 
-  modalImage.src = image.url;
+  modalImage.src = image.url || image.image;
   modalImage.alt = escapeHTML(image.alt);
   modalCaption.textContent = image.caption;
 
@@ -952,6 +985,64 @@ function setupImageObserver(container) {
 }
 
 // ============================================================================
+// MINISTRY-SPECIFIC FEATURES
+// ============================================================================
+
+/**
+ * Applies ministry-specific theming and features
+ * @param {string} ministryType - Type of ministry
+ */
+function applyMinistryTheming(ministryType) {
+  const body = document.body;
+  
+  Object.values(MINISTRY_TYPES).forEach((type) => {
+    body.classList.remove(`ministry--${type}`);
+  });
+  
+  body.classList.add(`ministry--${ministryType}`);
+  
+  log('info', 'Ministry theming applied', { ministryType });
+}
+
+/**
+ * Handles ministry-specific data structure variations
+ * @param {Object} data - Ministry data
+ * @param {string} ministryType - Type of ministry
+ * @returns {Object} Normalized data structure
+ */
+function normalizeMinistryData(data, ministryType) {
+  const normalized = { ...data };
+  
+  if (ministryType === MINISTRY_TYPES.CHILDRENS) {
+    if (data.ageGroups && !normalized.schedule) {
+      normalized.schedule = {
+        regular: data.ageGroups.map((group) => ({
+          id: group.name.toLowerCase().replace(/\s+/g, '-'),
+          name: group.name,
+          day: group.ages,
+          time: data.meetingSchedule?.sunday?.time || '',
+          location: group.room || '',
+          description: group.description,
+        })),
+        special: data.specialEvents || [],
+      };
+    }
+  }
+  
+  if (ministryType === MINISTRY_TYPES.MENS) {
+    if (data.schedule?.regular) {
+      normalized.schedule.regular = data.schedule.regular.map((item) => ({
+        ...item,
+        id: item.name.toLowerCase().replace(/\s+/g, '-'),
+        day: item.day || item.frequency,
+      }));
+    }
+  }
+  
+  return normalized;
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
@@ -959,41 +1050,47 @@ function setupImageObserver(container) {
  * Initializes ministry page
  * @param {string} ministryName - Name of ministry to load
  */
-async function initMinistryPage(ministryName = 'youth') {
+async function initMinistryPage(ministryName = null) {
   try {
-    log('info', 'Initializing ministry page', { ministryName });
+    const detectedType = ministryName || detectMinistryType();
+    state.currentMinistryType = detectedType;
+    
+    log('info', 'Initializing ministry page', { ministryType: detectedType });
 
-    const data = await fetchMinistryData(ministryName);
-    state.ministryData = data;
+    applyMinistryTheming(detectedType);
+
+    const data = await fetchMinistryData(detectedType);
+    const normalizedData = normalizeMinistryData(data, detectedType);
+    state.ministryData = normalizedData;
 
     const leadershipContainer = querySelector(SELECTORS.LEADERSHIP_GRID);
-    if (leadershipContainer && data.leadership) {
-      renderLeadership(data.leadership, leadershipContainer);
+    if (leadershipContainer && normalizedData.leadership) {
+      renderLeadership(normalizedData.leadership, leadershipContainer);
     }
 
     const scheduleContainer = querySelector(SELECTORS.SCHEDULE_GRID);
-    if (scheduleContainer && data.schedule && data.schedule.regular) {
-      renderSchedule(data.schedule.regular, scheduleContainer);
+    if (scheduleContainer && normalizedData.schedule && normalizedData.schedule.regular) {
+      renderSchedule(normalizedData.schedule.regular, scheduleContainer);
     }
 
     const specialEventsContainer = querySelector(SELECTORS.SPECIAL_EVENTS_GRID);
-    if (specialEventsContainer && data.schedule && data.schedule.special) {
-      renderSpecialEvents(data.schedule.special, specialEventsContainer);
+    if (specialEventsContainer && normalizedData.schedule && normalizedData.schedule.special) {
+      renderSpecialEvents(normalizedData.schedule.special, specialEventsContainer);
     }
 
     const galleryContainer = querySelector(SELECTORS.GALLERY_GRID);
-    if (galleryContainer && data.gallery) {
-      renderGallery(data.gallery, galleryContainer);
+    if (galleryContainer && normalizedData.gallery) {
+      renderGallery(normalizedData.gallery, galleryContainer);
     }
 
     const testimonialsTrack = querySelector(SELECTORS.TESTIMONIALS_TRACK);
     const testimonialsIndicators = querySelector(SELECTORS.TESTIMONIALS_INDICATORS);
-    if (testimonialsTrack && data.testimonials) {
-      renderTestimonials(data.testimonials, testimonialsTrack, testimonialsIndicators);
+    if (testimonialsTrack && normalizedData.testimonials) {
+      renderTestimonials(normalizedData.testimonials, testimonialsTrack, testimonialsIndicators);
       initTestimonialsCarousel();
     }
 
-    log('info', 'Ministry page initialized successfully', { ministryName });
+    log('info', 'Ministry page initialized successfully', { ministryType: detectedType });
   } catch (error) {
     log('error', 'Ministry page initialization failed', {
       ministryName,
@@ -1021,6 +1118,7 @@ function cleanup() {
   state.loadingImages.clear();
   state.ministryData = null;
   state.currentGalleryIndex = 0;
+  state.currentMinistryType = null;
   state.testimonialsState = {
     currentIndex: 0,
     totalTestimonials: 0,
@@ -1046,4 +1144,6 @@ export {
   initTestimonialsCarousel,
   openGalleryModal,
   closeGalleryModal,
+  detectMinistryType,
+  applyMinistryTheming,
 };

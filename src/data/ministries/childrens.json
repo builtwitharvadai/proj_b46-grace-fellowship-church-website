@@ -1,0 +1,279 @@
+{
+  "id": "childrens-ministry",
+  "name": "Children's Ministry",
+  "tagline": "Nurturing Young Hearts for Jesus",
+  "description": "Our Children's Ministry is a vibrant, safe, and fun place where kids from birth through 5th grade can learn about God's love in age-appropriate ways. Through engaging Bible stories, creative activities, worship songs, and caring teachers, we help children build a strong foundation of faith while making lasting friendships.",
+  "hero": {
+    "image": "/images/ministries/childrens-hero.jpg",
+    "alt": "Children participating in worship and activities"
+  },
+  "mission": "To partner with families in raising children who know, love, and follow Jesus Christ through engaging, age-appropriate teaching and activities in a safe, nurturing environment.",
+  "meetingSchedule": {
+    "sunday": {
+      "time": "9:00 AM & 11:00 AM",
+      "location": "Children's Wing",
+      "description": "Age-grouped classes during both worship services"
+    },
+    "wednesday": {
+      "time": "6:30 PM - 8:00 PM",
+      "location": "Children's Wing",
+      "description": "Midweek programs with Bible lessons, games, and crafts"
+    }
+  },
+  "ageGroups": [
+    {
+      "name": "Nursery",
+      "ages": "Birth - 2 years",
+      "description": "Loving care in a clean, safe environment with age-appropriate Bible stories and songs",
+      "room": "Nursery A & B",
+      "icon": "baby"
+    },
+    {
+      "name": "Toddlers",
+      "ages": "2 - 3 years",
+      "description": "Interactive learning through play, simple Bible stories, and music",
+      "room": "Toddler Room",
+      "icon": "child"
+    },
+    {
+      "name": "Preschool",
+      "ages": "4 - 5 years (Pre-K)",
+      "description": "Engaging lessons, creative activities, and worship designed for curious preschoolers",
+      "room": "Preschool Room",
+      "icon": "blocks"
+    },
+    {
+      "name": "Elementary",
+      "ages": "Kindergarten - 5th Grade",
+      "description": "Dynamic Bible teaching, small group discussions, games, and service projects",
+      "room": "Elementary Hall",
+      "icon": "school"
+    }
+  ],
+  "leadership": [
+    {
+      "name": "Sarah Martinez",
+      "role": "Children's Ministry Director",
+      "bio": "Sarah has been serving in children's ministry for over 12 years and has a passion for helping kids discover God's love. She holds a degree in Early Childhood Education and loves creating fun, memorable experiences that teach biblical truths.",
+      "image": "/images/staff/sarah-martinez.jpg",
+      "email": "sarah.martinez@gracefellowship.org",
+      "phone": "(555) 123-4567"
+    },
+    {
+      "name": "Michael Chen",
+      "role": "Elementary Coordinator",
+      "bio": "Michael brings energy and creativity to our elementary program. A former elementary school teacher, he excels at making Bible stories come alive through interactive teaching and engaging activities.",
+      "image": "/images/staff/michael-chen.jpg",
+      "email": "michael.chen@gracefellowship.org"
+    },
+    {
+      "name": "Emily Rodriguez",
+      "role": "Preschool Coordinator",
+      "bio": "Emily's gentle spirit and love for little ones make her perfect for leading our preschool ministry. She has a background in child development and creates a warm, welcoming environment for our youngest learners.",
+      "image": "/images/staff/emily-rodriguez.jpg",
+      "email": "emily.rodriguez@gracefellowship.org"
+    }
+  ],
+  "activities": [
+    {
+      "name": "Sunday School",
+      "description": "Age-appropriate Bible lessons with crafts, games, and activities",
+      "frequency": "Every Sunday",
+      "ageRange": "Birth - 5th Grade"
+    },
+    {
+      "name": "Kids Worship",
+      "description": "High-energy worship time with songs, motions, and praise",
+      "frequency": "Every Sunday",
+      "ageRange": "Preschool - 5th Grade"
+    },
+    {
+      "name": "Midweek Adventure",
+      "description": "Wednesday night program with Bible stories, games, and snacks",
+      "frequency": "Weekly during school year",
+      "ageRange": "Preschool - 5th Grade"
+    },
+    {
+      "name": "Vacation Bible School",
+      "description": "Week-long summer program with themes, music, crafts, and fun",
+      "frequency": "Annual (Summer)",
+      "ageRange": "4 years - 5th Grade"
+    },
+    {
+      "name": "Family Events",
+      "description": "Special events like Fall Festival, Christmas program, and Easter celebration",
+      "frequency": "Quarterly",
+      "ageRange": "All ages with families"
+    },
+    {
+      "name": "Service Projects",
+      "description": "Age-appropriate opportunities to serve others and show God's love",
+      "frequency": "Monthly",
+      "ageRange": "Kindergarten - 5th Grade"
+    }
+  ],
+  "specialEvents": [
+    {
+      "name": "Vacation Bible School",
+      "date": "June 10-14, 2024",
+      "time": "9:00 AM - 12:00 PM",
+      "description": "Join us for an exciting week of Bible adventures, music, crafts, games, and snacks! This year's theme: 'Treasured: Discovering You're Priceless to God'",
+      "ageRange": "4 years - 5th Grade",
+      "registration": "Opens April 1st",
+      "cost": "Free"
+    },
+    {
+      "name": "Fall Festival",
+      "date": "October 31, 2024",
+      "time": "5:00 PM - 8:00 PM",
+      "description": "A safe, fun alternative to Halloween with games, prizes, trunk-or-treat, and fall activities for the whole family",
+      "ageRange": "All ages",
+      "registration": "No registration required",
+      "cost": "Free"
+    },
+    {
+      "name": "Christmas Program",
+      "date": "December 15, 2024",
+      "time": "6:00 PM",
+      "description": "Our children present the Christmas story through songs, drama, and scripture. A special celebration for families!",
+      "ageRange": "Preschool - 5th Grade performers",
+      "registration": "Sign up in October",
+      "cost": "Free"
+    },
+    {
+      "name": "Easter Egg Hunt",
+      "date": "March 30, 2024",
+      "time": "10:00 AM",
+      "description": "Egg hunt with age-specific areas, Easter story presentation, and family activities celebrating Jesus' resurrection",
+      "ageRange": "Birth - 5th Grade",
+      "registration": "No registration required",
+      "cost": "Free"
+    }
+  ],
+  "safetyPolicies": [
+    {
+      "title": "Background Checks",
+      "description": "All volunteers and staff complete comprehensive background checks before serving with children"
+    },
+    {
+      "title": "Two-Adult Rule",
+      "description": "At least two screened adults are present in every classroom at all times"
+    },
+    {
+      "title": "Check-In System",
+      "description": "Secure electronic check-in/check-out system with matching ID tags for parents and children"
+    },
+    {
+      "title": "Allergy Awareness",
+      "description": "We track and accommodate food allergies and medical needs for each child"
+    },
+    {
+      "title": "Clean Environment",
+      "description": "Regular cleaning and sanitization of all toys, surfaces, and materials"
+    },
+    {
+      "title": "Emergency Procedures",
+      "description": "Staff trained in emergency response, first aid, and evacuation procedures"
+    }
+  ],
+  "volunteerOpportunities": [
+    {
+      "role": "Classroom Teacher",
+      "commitment": "Once or twice per month",
+      "description": "Lead a class through the Bible lesson, activities, and crafts"
+    },
+    {
+      "role": "Classroom Helper",
+      "commitment": "Once or twice per month",
+      "description": "Assist the lead teacher with activities, supervision, and classroom management"
+    },
+    {
+      "role": "Nursery Volunteer",
+      "commitment": "Once per month",
+      "description": "Provide loving care for our youngest children during services"
+    },
+    {
+      "role": "Check-In Team",
+      "commitment": "Once per month",
+      "description": "Welcome families and help with our secure check-in process"
+    },
+    {
+      "role": "Special Events Team",
+      "commitment": "4-6 times per year",
+      "description": "Help plan and execute special events like VBS, Fall Festival, and Christmas program"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Parent Resources",
+      "description": "Weekly take-home sheets with lesson summaries and family discussion questions",
+      "link": "/resources/parent-guides"
+    },
+    {
+      "title": "Bible Reading Plans",
+      "description": "Age-appropriate Bible reading plans for families",
+      "link": "/resources/reading-plans"
+    },
+    {
+      "title": "Parenting Articles",
+      "description": "Helpful articles on raising children in faith",
+      "link": "/resources/parenting"
+    },
+    {
+      "title": "Recommended Apps",
+      "description": "Vetted Bible apps and resources for kids",
+      "link": "/resources/apps"
+    }
+  ],
+  "gallery": [
+    {
+      "image": "/images/gallery/childrens-worship.jpg",
+      "alt": "Children singing and worshiping with motions",
+      "caption": "Kids worship time with energetic praise songs"
+    },
+    {
+      "image": "/images/gallery/childrens-craft.jpg",
+      "alt": "Children working on Bible-themed crafts",
+      "caption": "Creative crafts that reinforce Bible lessons"
+    },
+    {
+      "image": "/images/gallery/childrens-vbs.jpg",
+      "alt": "Vacation Bible School group photo",
+      "caption": "VBS 2023 - Amazing week of learning and fun!"
+    },
+    {
+      "image": "/images/gallery/childrens-games.jpg",
+      "alt": "Kids playing group games outdoors",
+      "caption": "Games that teach teamwork and biblical values"
+    },
+    {
+      "image": "/images/gallery/childrens-story.jpg",
+      "alt": "Teacher reading Bible story to engaged children",
+      "caption": "Bible stories come alive through interactive teaching"
+    },
+    {
+      "image": "/images/gallery/childrens-service.jpg",
+      "alt": "Children packing care packages",
+      "caption": "Learning to serve others and share God's love"
+    },
+    {
+      "image": "/images/gallery/childrens-christmas.jpg",
+      "alt": "Children performing Christmas program",
+      "caption": "Annual Christmas program celebrating Jesus' birth"
+    },
+    {
+      "image": "/images/gallery/childrens-easter.jpg",
+      "alt": "Easter egg hunt with families",
+      "caption": "Easter celebration with egg hunt and resurrection story"
+    }
+  ],
+  "contact": {
+    "email": "childrens@gracefellowship.org",
+    "phone": "(555) 123-4567",
+    "office": "Children's Ministry Office, Room 101"
+  },
+  "socialMedia": {
+    "facebook": "https://facebook.com/gracefellowshipchildrens",
+    "instagram": "https://instagram.com/gfc_kids"
+  }
+}
