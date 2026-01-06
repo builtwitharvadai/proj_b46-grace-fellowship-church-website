@@ -19,6 +19,7 @@
   <link rel="canonical" href="https://gracefellowshipchurch.org/contact">
   
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components/navigation.css">
   
   <script type="application/ld+json">
   {
@@ -35,19 +36,29 @@
     "url": "https://gracefellowshipchurch.org"
   }
   </script>
+  
+  <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
   
   <header role="banner">
-    <nav role="navigation" aria-label="Main navigation">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav__container">
         <div class="nav__logo">
           <a href="/" aria-label="Grace Fellowship Church Home">
             <span class="nav__logo-text">Grace Fellowship Church</span>
           </a>
         </div>
-        <ul class="nav__menu" role="list">
+        <button 
+          class="nav__toggle" 
+          aria-expanded="false" 
+          aria-controls="nav-menu"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="nav__toggle-icon"></span>
+        </button>
+        <ul id="nav-menu" class="nav__menu" role="list" aria-hidden="true">
           <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
           <li class="nav__item"><a href="/about.html" class="nav__link">About</a></li>
           <li class="nav__item"><a href="/#services" class="nav__link">Services</a></li>
