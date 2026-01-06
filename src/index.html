@@ -18,7 +18,41 @@
   
   <link rel="canonical" href="https://gracefellowshipchurch.org">
   
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "Grace Fellowship Church",
+    "description": "A welcoming Christian community in Nigeria. Join us for worship, fellowship, and spiritual growth.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lagos",
+      "addressCountry": "Nigeria"
+    },
+    "telephone": "+234",
+    "email": "info@gracefellowshipchurch.org",
+    "url": "https://gracefellowshipchurch.org",
+    "image": "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1200&auto=format&fit=crop",
+    "priceRange": "Free",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "09:00",
+        "closes": "11:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Wednesday",
+        "opens": "18:00",
+        "closes": "19:30"
+      }
+    ]
+  }
+  </script>
+  
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components/navigation.css">
   <link rel="stylesheet" href="css/components/hero.css">
   <link rel="stylesheet" href="css/components/service-times.css">
   <link rel="stylesheet" href="css/components/location-preview.css">
@@ -29,20 +63,28 @@
   <a href="#main" class="skip-link">Skip to main content</a>
   
   <header role="banner">
-    <nav role="navigation" aria-label="Main navigation">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav__container">
         <div class="nav__logo">
           <a href="/" aria-label="Grace Fellowship Church Home">
             <span class="nav__logo-text">Grace Fellowship Church</span>
           </a>
         </div>
-        <ul class="nav__menu" role="list">
+        <button 
+          class="nav__toggle" 
+          aria-expanded="false" 
+          aria-controls="nav-menu"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="nav__toggle-icon"></span>
+        </button>
+        <ul id="nav-menu" class="nav__menu" role="list" aria-hidden="true">
           <li class="nav__item"><a href="/" class="nav__link" aria-current="page">Home</a></li>
-          <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
           <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
           <li class="nav__item"><a href="#ministries" class="nav__link">Ministries</a></li>
           <li class="nav__item"><a href="#events" class="nav__link">Events</a></li>
-          <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+          <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
         </ul>
       </div>
     </nav>
