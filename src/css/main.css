@@ -9,6 +9,9 @@
 @import url('./components/hero.css');
 @import url('./components/service-times.css');
 @import url('./components/location-preview.css');
+@import url('./components/timeline.css');
+@import url('./components/staff-grid.css');
+@import url('./components/beliefs.css');
 
 /* ============================================
    CSS Custom Properties (Design Tokens)
