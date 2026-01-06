@@ -1,0 +1,455 @@
+/* ============================================
+   Impact Metrics Component Styles
+   Displays community service statistics with visual impact
+   ============================================ */
+
+/* ============================================
+   Impact Metrics Container
+   ============================================ */
+.impact-metrics {
+  padding: var(--space-3xl) var(--space-md);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-50) 0%,
+    var(--color-neutral-50) 100%
+  );
+}
+
+.impact-metrics__container {
+  max-width: var(--container-xl);
+  margin-inline: auto;
+}
+
+.impact-metrics__header {
+  margin-block-end: var(--space-2xl);
+  text-align: center;
+}
+
+.impact-metrics__title {
+  margin-block-end: var(--space-md);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+}
+
+.impact-metrics__subtitle {
+  max-width: 65ch;
+  margin-inline: auto;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ============================================
+   Statistics Grid Layout
+   ============================================ */
+.impact-metrics__grid {
+  display: grid;
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .impact-metrics__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .impact-metrics__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   Metric Card Component
+   ============================================ */
+.metric-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-500) 0%,
+    var(--color-primary-600) 100%
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-slow);
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.metric-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ============================================
+   Number Counter Display
+   ============================================ */
+.metric-card__number {
+  display: flex;
+  align-items: baseline;
+  margin-block-end: var(--space-sm);
+  font-size: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-600);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-card__number-value {
+  display: inline-block;
+}
+
+.metric-card__number-suffix {
+  margin-inline-start: 0.25rem;
+  font-size: 0.6em;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-500);
+}
+
+/* ============================================
+   Metric Label and Description
+   ============================================ */
+.metric-card__label {
+  margin-block-end: var(--space-xs);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-align: center;
+  line-height: var(--line-height-tight);
+}
+
+.metric-card__description {
+  margin-block-end: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: var(--line-height-normal);
+}
+
+/* ============================================
+   Progress Bar Component
+   ============================================ */
+.metric-card__progress {
+  width: 100%;
+  margin-block-start: var(--space-md);
+}
+
+.metric-card__progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.metric-card__progress-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-neutral-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.metric-card__progress-fill {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-500) 0%,
+    var(--color-primary-600) 100%
+  );
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow) ease-out;
+  transform-origin: left;
+}
+
+.metric-card__progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ============================================
+   Achievement Badge Component
+   ============================================ */
+.metric-card__badge {
+  position: absolute;
+  inset-block-start: var(--space-md);
+  inset-inline-end: var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-700);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metric-card__badge-icon {
+  width: 1em;
+  height: 1em;
+}
+
+/* ============================================
+   Featured Metric Variant
+   ============================================ */
+.metric-card--featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-600) 0%,
+    var(--color-primary-700) 100%
+  );
+  color: white;
+}
+
+.metric-card--featured .metric-card__number {
+  color: white;
+}
+
+.metric-card--featured .metric-card__number-suffix {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.metric-card--featured .metric-card__label {
+  color: white;
+}
+
+.metric-card--featured .metric-card__description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.metric-card--featured .metric-card__progress-bar {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.metric-card--featured .metric-card__progress-fill {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    white 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .metric-card--featured {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .metric-card--featured .metric-card__content {
+    flex: 1;
+  }
+
+  .metric-card--featured .metric-card__label,
+  .metric-card--featured .metric-card__description {
+    text-align: left;
+  }
+
+  .metric-card--featured .metric-card__progress {
+    max-width: 300px;
+  }
+}
+
+/* ============================================
+   Icon Metric Variant
+   ============================================ */
+.metric-card--icon {
+  padding-block-start: var(--space-2xl);
+}
+
+.metric-card__icon {
+  position: absolute;
+  inset-block-start: calc(var(--space-md) * -1);
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-500) 0%,
+    var(--color-primary-600) 100%
+  );
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+}
+
+.metric-card__icon svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+/* ============================================
+   Comparison Metrics
+   ============================================ */
+.metric-card__comparison {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-block-start: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-neutral-100);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.metric-card__comparison--positive {
+  background-color: hsl(142, 76%, 95%);
+  color: hsl(142, 76%, 36%);
+}
+
+.metric-card__comparison--negative {
+  background-color: hsl(0, 84%, 95%);
+  color: hsl(0, 84%, 40%);
+}
+
+.metric-card__comparison-icon {
+  width: 1em;
+  height: 1em;
+}
+
+/* ============================================
+   Animated Counter Effect
+   ============================================ */
+@media (prefers-reduced-motion: no-preference) {
+  .metric-card__number-value {
+    animation: count-up var(--transition-slow) ease-out;
+  }
+
+  @keyframes count-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ============================================
+   Accessibility Enhancements
+   ============================================ */
+.metric-card:focus-within {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metric-card,
+  .metric-card::before,
+  .metric-card__progress-fill,
+  .metric-card__progress-fill::after,
+  .metric-card__number-value {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .impact-metrics {
+    background: white;
+    padding: var(--space-lg);
+  }
+
+  .metric-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--color-neutral-300);
+  }
+
+  .metric-card::before,
+  .metric-card__progress-fill::after {
+    display: none;
+  }
+}
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .impact-metrics {
+    background: linear-gradient(
+      135deg,
+      var(--color-neutral-900) 0%,
+      var(--color-neutral-800) 100%
+    );
+  }
+
+  .metric-card__progress-bar {
+    background-color: var(--color-neutral-700);
+  }
+
+  .metric-card__comparison {
+    background-color: var(--color-neutral-800);
+  }
+
+  .metric-card__comparison--positive {
+    background-color: hsl(142, 76%, 15%);
+    color: hsl(142, 76%, 70%);
+  }
+
+  .metric-card__comparison--negative {
+    background-color: hsl(0, 84%, 15%);
+    color: hsl(0, 84%, 70%);
+  }
+}
