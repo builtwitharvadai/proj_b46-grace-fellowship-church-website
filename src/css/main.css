@@ -12,6 +12,9 @@
 @import url('./components/timeline.css');
 @import url('./components/staff-grid.css');
 @import url('./components/beliefs.css');
+@import url('./components/contact-form.css');
+@import url('./components/contact-info.css');
+@import url('./components/maps.css');
 
 /* ============================================
    CSS Custom Properties (Design Tokens)
