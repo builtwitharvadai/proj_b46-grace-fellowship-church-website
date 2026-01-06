@@ -1,0 +1,381 @@
+/* ============================================
+   Modal Component Styles
+   Event detail modal with overlay and animations
+   ============================================ */
+
+/* ============================================
+   Modal Overlay
+   ============================================ */
+.event-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+  overscroll-behavior: contain;
+}
+
+.event-modal[open] {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Prevent body scroll when modal is open */
+body:has(.event-modal[open]) {
+  overflow: hidden;
+}
+
+/* ============================================
+   Modal Content Container
+   ============================================ */
+.event-modal__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  max-height: calc(100vh - var(--space-md) * 2);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  transform: scale(0.95) translateY(20px);
+  transition: transform var(--transition-base);
+}
+
+.event-modal[open] .event-modal__content {
+  transform: scale(1) translateY(0);
+}
+
+/* ============================================
+   Modal Header
+   ============================================ */
+.event-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-neutral-50);
+}
+
+.event-modal__title {
+  flex: 1;
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   Close Button
+   ============================================ */
+.event-modal__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-2xl);
+  line-height: 1;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.event-modal__close:hover {
+  background-color: var(--color-neutral-100);
+  color: var(--color-text-primary);
+}
+
+.event-modal__close:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.event-modal__close:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   Modal Body
+   ============================================ */
+.event-modal__body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.event-modal__image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-neutral-100);
+  overflow: hidden;
+}
+
+.event-modal__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.event-modal__details {
+  padding: var(--space-lg);
+}
+
+/* ============================================
+   Event Meta Information
+   ============================================ */
+.event-modal__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.event-modal__date,
+.event-modal__time,
+.event-modal__category {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.event-modal__category {
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-primary-50);
+  border-radius: var(--radius-full);
+  color: var(--color-primary-700);
+  text-transform: capitalize;
+}
+
+/* ============================================
+   Event Description
+   ============================================ */
+.event-modal__description {
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+}
+
+.event-modal__description p {
+  margin-bottom: var(--space-md);
+}
+
+.event-modal__description p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Event Location
+   ============================================ */
+.event-modal__location {
+  padding: var(--space-md);
+  background-color: var(--color-neutral-50);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary-500);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Modal Footer
+   ============================================ */
+.event-modal__footer {
+  padding: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-neutral-50);
+}
+
+.event-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* ============================================
+   Modal Action Buttons
+   ============================================ */
+.event-modal__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.event-modal__btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.event-modal__btn:active {
+  transform: translateY(1px);
+}
+
+.event-modal__btn--primary {
+  background-color: var(--color-primary-600);
+  color: white;
+}
+
+.event-modal__btn--primary:hover {
+  background-color: var(--color-primary-700);
+  box-shadow: var(--shadow-md);
+}
+
+.event-modal__btn--secondary {
+  background-color: var(--color-neutral-100);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.event-modal__btn--secondary:hover {
+  background-color: var(--color-neutral-200);
+  border-color: var(--color-neutral-300);
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+@media (max-width: 640px) {
+  .event-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .event-modal__content {
+    max-height: 90vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transform: translateY(100%);
+  }
+
+  .event-modal[open] .event-modal__content {
+    transform: translateY(0);
+  }
+
+  .event-modal__header {
+    padding: var(--space-md);
+  }
+
+  .event-modal__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .event-modal__details {
+    padding: var(--space-md);
+  }
+
+  .event-modal__footer {
+    padding: var(--space-md);
+  }
+
+  .event-modal__actions {
+    flex-direction: column;
+  }
+
+  .event-modal__btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .event-modal__content {
+    max-width: 600px;
+  }
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .event-modal,
+  .event-modal__content,
+  .event-modal__close,
+  .event-modal__btn {
+    transition-duration: 0.01ms;
+  }
+
+  .event-modal__content {
+    transform: none;
+  }
+
+  .event-modal[open] .event-modal__content {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .event-modal {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  .event-modal__header {
+    background-color: var(--color-neutral-800);
+  }
+
+  .event-modal__footer {
+    background-color: var(--color-neutral-800);
+  }
+
+  .event-modal__category {
+    background-color: var(--color-primary-900);
+    color: var(--color-primary-200);
+  }
+
+  .event-modal__location {
+    background-color: var(--color-neutral-800);
+  }
+
+  .event-modal__btn--secondary {
+    background-color: var(--color-neutral-800);
+    border-color: var(--color-neutral-700);
+  }
+
+  .event-modal__btn--secondary:hover {
+    background-color: var(--color-neutral-700);
+    border-color: var(--color-neutral-600);
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .event-modal {
+    display: none;
+  }
+}

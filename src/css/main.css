@@ -16,6 +16,9 @@
 @import url('./components/contact-form.css');
 @import url('./components/contact-info.css');
 @import url('./components/maps.css');
+@import url('./components/events.css');
+@import url('./components/calendar.css');
+@import url('./components/modal.css');
 
 /* ============================================
    Utility Imports
