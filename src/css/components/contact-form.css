@@ -1,0 +1,419 @@
+/* ============================================
+   Contact Form Component Styles
+   Mobile-first, BEM methodology, Accessibility-first
+   ============================================ */
+
+/* ============================================
+   Form Container
+   ============================================ */
+.contact-form {
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  container-type: inline-size;
+  container-name: contact-form;
+}
+
+/* ============================================
+   Form Fields
+   ============================================ */
+.contact-form__field {
+  margin-block-end: var(--space-lg);
+}
+
+.contact-form__field:last-of-type {
+  margin-block-end: 0;
+}
+
+/* ============================================
+   Labels
+   ============================================ */
+.contact-form__label {
+  display: block;
+  margin-block-end: var(--space-sm);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-normal);
+}
+
+.contact-form__required {
+  color: #dc3545;
+  margin-inline-start: var(--space-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   Input Fields
+   ============================================ */
+.contact-form__input,
+.contact-form__select,
+.contact-form__textarea {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  appearance: none;
+}
+
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* ============================================
+   Focus States
+   ============================================ */
+.contact-form__input:focus,
+.contact-form__select:focus,
+.contact-form__textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.contact-form__input:focus-visible,
+.contact-form__select:focus-visible,
+.contact-form__textarea:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Error States
+   ============================================ */
+.contact-form__input--error,
+.contact-form__select--error,
+.contact-form__textarea--error {
+  border-color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.02);
+}
+
+.contact-form__input--error:focus,
+.contact-form__select--error:focus,
+.contact-form__textarea--error:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* ============================================
+   Success States
+   ============================================ */
+.contact-form__input--success,
+.contact-form__select--success,
+.contact-form__textarea--success {
+  border-color: #28a745;
+  background-color: rgba(40, 167, 69, 0.02);
+}
+
+.contact-form__input--success:focus,
+.contact-form__select--success:focus,
+.contact-form__textarea--success:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+/* ============================================
+   Disabled States
+   ============================================ */
+.contact-form__input:disabled,
+.contact-form__select:disabled,
+.contact-form__textarea:disabled {
+  background-color: var(--color-neutral-100);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ============================================
+   Select Dropdown
+   ============================================ */
+.contact-form__select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-md) center;
+  background-size: 12px;
+  padding-inline-end: calc(var(--space-md) * 2.5);
+  cursor: pointer;
+}
+
+.contact-form__select::-ms-expand {
+  display: none;
+}
+
+/* ============================================
+   Textarea
+   ============================================ */
+.contact-form__textarea {
+  resize: vertical;
+  min-height: 120px;
+  max-height: 400px;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ============================================
+   Hint Text
+   ============================================ */
+.contact-form__hint {
+  display: block;
+  margin-block-start: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-normal);
+}
+
+/* ============================================
+   Error Messages
+   ============================================ */
+.contact-form__error {
+  display: none;
+  margin-block-start: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: #dc3545;
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+}
+
+.contact-form__error:not(:empty) {
+  display: block;
+}
+
+/* ============================================
+   Form Actions
+   ============================================ */
+.contact-form__actions {
+  margin-block-start: var(--space-xl);
+}
+
+/* ============================================
+   Submit Button
+   ============================================ */
+.contact-form__submit {
+  width: 100%;
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: white;
+  background-color: var(--color-primary-600);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form__submit:hover:not(:disabled) {
+  background-color: var(--color-primary-700);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-form__submit:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-form__submit:disabled {
+  background-color: var(--color-neutral-400);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.contact-form__submit:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Loading State
+   ============================================ */
+.contact-form__submit--loading {
+  pointer-events: none;
+}
+
+.contact-form__submit--loading .contact-form__submit-text {
+  opacity: 0;
+}
+
+.contact-form__submit-text {
+  transition: opacity var(--transition-fast);
+}
+
+.contact-form__submit-spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: contact-form-spin 0.6s linear infinite;
+}
+
+.contact-form__submit--loading .contact-form__submit-spinner {
+  display: block;
+}
+
+@keyframes contact-form-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* ============================================
+   Status Messages
+   ============================================ */
+.contact-form__status {
+  display: none;
+  margin-block-start: var(--space-lg);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  border: 1px solid transparent;
+}
+
+.contact-form__status:not(:empty) {
+  display: block;
+}
+
+.contact-form__status--success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.contact-form__status--error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+.contact-form__status--info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-color: #bee5eb;
+}
+
+/* ============================================
+   Container Query Responsive Design
+   ============================================ */
+@container contact-form (width > 600px) {
+  .contact-form {
+    padding: var(--space-2xl);
+  }
+
+  .contact-form__field {
+    margin-block-end: var(--space-xl);
+  }
+
+  .contact-form__submit {
+    width: auto;
+    min-width: 200px;
+    padding-inline: var(--space-2xl);
+  }
+
+  .contact-form__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .contact-form__input,
+  .contact-form__select,
+  .contact-form__textarea,
+  .contact-form__submit {
+    transition-duration: 0.01ms;
+  }
+
+  .contact-form__submit:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .contact-form__submit-spinner {
+    animation-duration: 0.01ms;
+  }
+}
+
+/* ============================================
+   High Contrast Mode Support
+   ============================================ */
+@media (prefers-contrast: high) {
+  .contact-form__input,
+  .contact-form__select,
+  .contact-form__textarea {
+    border-width: 3px;
+  }
+
+  .contact-form__input--error,
+  .contact-form__select--error,
+  .contact-form__textarea--error {
+    border-width: 3px;
+  }
+
+  .contact-form__submit {
+    border: 2px solid white;
+  }
+}
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .contact-form__select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  }
+
+  .contact-form__input--error,
+  .contact-form__select--error,
+  .contact-form__textarea--error {
+    background-color: rgba(220, 53, 69, 0.1);
+  }
+
+  .contact-form__input--success,
+  .contact-form__select--success,
+  .contact-form__textarea--success {
+    background-color: rgba(40, 167, 69, 0.1);
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .contact-form__submit,
+  .contact-form__status {
+    display: none;
+  }
+
+  .contact-form {
+    border: 1px solid black;
+    box-shadow: none;
+  }
+
+  .contact-form__input,
+  .contact-form__select,
+  .contact-form__textarea {
+    border: 1px solid black;
+  }
+}
