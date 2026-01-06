@@ -1,0 +1,295 @@
+/* ============================================
+   Contact Information Display Component
+   Mobile-first, BEM methodology, Accessibility-focused
+   ============================================ */
+
+/* ============================================
+   Contact Info Section Container
+   ============================================ */
+.contact-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.contact-info-section__title {
+  margin-block-end: var(--space-xl);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-600);
+  line-height: var(--line-height-tight);
+}
+
+/* ============================================
+   Contact Info Cards Container
+   ============================================ */
+.contact-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+/* ============================================
+   Individual Contact Info Card
+   ============================================ */
+.contact-info-card {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.contact-info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-info-card:focus-within {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Contact Info Card Icon
+   ============================================ */
+.contact-info-card__icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-600);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.contact-info-card:hover .contact-info-card__icon {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.contact-info-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================
+   Contact Info Card Content
+   ============================================ */
+.contact-info-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+/* ============================================
+   Contact Info Card Label
+   ============================================ */
+.contact-info-card__label {
+  margin-block-end: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: var(--line-height-tight);
+}
+
+/* ============================================
+   Contact Info Card Value
+   ============================================ */
+.contact-info-card__value {
+  display: block;
+  margin-block-end: var(--space-xs);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  line-height: var(--line-height-normal);
+  word-break: break-word;
+  transition: color var(--transition-fast);
+}
+
+a.contact-info-card__value:hover {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+}
+
+a.contact-info-card__value:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+address.contact-info-card__value {
+  font-style: normal;
+}
+
+/* ============================================
+   Contact Info Card Note
+   ============================================ */
+.contact-info-card__note {
+  margin-block-end: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ============================================
+   Contact Info Card Link
+   ============================================ */
+.contact-info-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-block-start: var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-600);
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.contact-info-card__link:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+  transform: translateX(2px);
+}
+
+.contact-info-card__link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.contact-info-card__link::after {
+  content: '→';
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.contact-info-card__link:hover::after {
+  transform: translateX(2px);
+}
+
+/* ============================================
+   Responsive Design - Tablet
+   ============================================ */
+@media (min-width: 640px) {
+  .contact-info-cards {
+    gap: var(--space-xl);
+  }
+
+  .contact-info-card {
+    padding: var(--space-xl);
+  }
+
+  .contact-info-card__icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .contact-info-card__icon svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ============================================
+   Responsive Design - Desktop
+   ============================================ */
+@media (min-width: 1024px) {
+  .contact-info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .contact-info-card__icon {
+    background-color: var(--color-primary-900);
+    color: var(--color-primary-300);
+  }
+
+  .contact-info-card:hover .contact-info-card__icon {
+    background-color: var(--color-primary-800);
+    color: var(--color-primary-200);
+  }
+}
+
+/* ============================================
+   High Contrast Mode Support
+   ============================================ */
+@media (prefers-contrast: high) {
+  .contact-info-card {
+    border-width: 2px;
+  }
+
+  .contact-info-card__icon {
+    border: 2px solid currentColor;
+  }
+
+  a.contact-info-card__value,
+  .contact-info-card__link {
+    text-decoration: underline;
+  }
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .contact-info-card,
+  .contact-info-card__icon,
+  a.contact-info-card__value,
+  .contact-info-card__link,
+  .contact-info-card__link::after {
+    transition: none;
+  }
+
+  .contact-info-card:hover {
+    transform: none;
+  }
+
+  .contact-info-card__link:hover::after {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .contact-info-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .contact-info-card__icon {
+    background-color: transparent;
+    border: 1px solid #000;
+  }
+
+  a.contact-info-card__value::after {
+    content: ' (' attr(href) ')';
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .contact-info-card__link {
+    display: none;
+  }
+}
