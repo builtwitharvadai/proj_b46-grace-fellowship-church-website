@@ -7,6 +7,7 @@
  * - Displaying meeting schedules (regular and special events)
  * - Managing photo gallery with lightbox functionality
  * - Progressive enhancement for better performance
+ * - Testimonials carousel integration for women's ministry
  * 
  * @module components/ministry
  * @generated-from: task-id:TASK-008
@@ -44,6 +45,10 @@ const SELECTORS = Object.freeze({
   SCHEDULE_CARD: '.schedule-card',
   SPECIAL_EVENT_CARD: '.special-event-card',
   GALLERY_ITEM: '.gallery-item',
+  TESTIMONIALS_TRACK: '#testimonials-track',
+  TESTIMONIALS_INDICATORS: '.testimonials__indicators',
+  TESTIMONIALS_PREV: '.testimonials__button--prev',
+  TESTIMONIALS_NEXT: '.testimonials__button--next',
 });
 
 const CLASSES = Object.freeze({
@@ -65,6 +70,12 @@ const state = {
   loadingImages: new Set(),
   intersectionObserver: null,
   dataCache: new Map(),
+  testimonialsState: {
+    currentIndex: 0,
+    totalTestimonials: 0,
+    autoRotateTimer: null,
+    isPaused: false,
+  },
 };
 
 // ============================================================================
@@ -333,7 +344,7 @@ function renderLeadership(leaders, container) {
     img.loading = 'lazy';
     img.width = 400;
     img.height = 400;
-    img.dataset.src = leader.photo;
+    img.dataset.src = leader.photo || leader.image;
 
     const content = document.createElement('div');
     content.className = 'leader-card__content';
@@ -521,6 +532,225 @@ function renderGallery(gallery, container) {
   setupGalleryHandlers();
 
   log('info', 'Gallery rendered', { count: gallery.length });
+}
+
+/**
+ * Renders testimonials carousel
+ * @param {Array} testimonials - Array of testimonial objects
+ * @param {Element} trackContainer - Track container element
+ * @param {Element} indicatorsContainer - Indicators container element
+ */
+function renderTestimonials(testimonials, trackContainer, indicatorsContainer) {
+  if (!trackContainer || !Array.isArray(testimonials) || testimonials.length === 0) {
+    log('warn', 'Cannot render testimonials - invalid data or container');
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  testimonials.forEach((testimonial, index) => {
+    const article = document.createElement('article');
+    article.className = 'testimonial-card';
+    article.setAttribute('role', 'tabpanel');
+    article.setAttribute('id', `testimonial-${index}`);
+    article.setAttribute('aria-labelledby', `indicator-${index}`);
+
+    const content = document.createElement('div');
+    content.className = 'testimonial-card__content';
+
+    const img = document.createElement('img');
+    img.className = 'testimonial-card__image';
+    img.alt = escapeHTML(testimonial.name);
+    img.loading = 'lazy';
+    img.width = 120;
+    img.height = 120;
+    img.dataset.src = testimonial.image;
+
+    const textContent = document.createElement('div');
+
+    const quote = document.createElement('blockquote');
+    quote.className = 'testimonial-card__quote';
+    quote.textContent = `"${testimonial.quote}"`;
+
+    const name = document.createElement('p');
+    name.className = 'testimonial-card__name';
+    name.textContent = testimonial.name;
+
+    const role = document.createElement('p');
+    role.className = 'testimonial-card__role';
+    role.textContent = testimonial.role;
+
+    textContent.appendChild(quote);
+    textContent.appendChild(name);
+    textContent.appendChild(role);
+
+    content.appendChild(img);
+    content.appendChild(textContent);
+    article.appendChild(content);
+    fragment.appendChild(article);
+  });
+
+  trackContainer.innerHTML = '';
+  trackContainer.appendChild(fragment);
+
+  if (indicatorsContainer) {
+    const indicatorsFragment = document.createDocumentFragment();
+
+    testimonials.forEach((_, index) => {
+      const button = document.createElement('button');
+      button.className = 'testimonials__indicator';
+      button.setAttribute('role', 'tab');
+      button.setAttribute('id', `indicator-${index}`);
+      button.setAttribute('aria-controls', `testimonial-${index}`);
+      button.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+      button.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+
+      indicatorsFragment.appendChild(button);
+    });
+
+    indicatorsContainer.innerHTML = '';
+    indicatorsContainer.appendChild(indicatorsFragment);
+  }
+
+  setupImageObserver(trackContainer);
+
+  state.testimonialsState.totalTestimonials = testimonials.length;
+  state.testimonialsState.currentIndex = 0;
+
+  log('info', 'Testimonials rendered', { count: testimonials.length });
+}
+
+// ============================================================================
+// TESTIMONIALS CAROUSEL
+// ============================================================================
+
+/**
+ * Initializes testimonials carousel functionality
+ */
+function initTestimonialsCarousel() {
+  const track = querySelector(SELECTORS.TESTIMONIALS_TRACK);
+  const prevButton = querySelector(SELECTORS.TESTIMONIALS_PREV);
+  const nextButton = querySelector(SELECTORS.TESTIMONIALS_NEXT);
+  const indicatorsContainer = querySelector(SELECTORS.TESTIMONIALS_INDICATORS);
+
+  if (!track) {
+    log('info', 'Testimonials carousel not found on page');
+    return;
+  }
+
+  const indicators = querySelectorAll('.testimonials__indicator', indicatorsContainer);
+
+  function updateCarousel() {
+    const { currentIndex, totalTestimonials } = state.testimonialsState;
+
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    if (prevButton) {
+      prevButton.disabled = currentIndex === 0;
+    }
+
+    if (nextButton) {
+      nextButton.disabled = currentIndex === totalTestimonials - 1;
+    }
+
+    indicators.forEach((indicator, index) => {
+      indicator.setAttribute('aria-selected', index === currentIndex ? 'true' : 'false');
+    });
+
+    log('info', 'Testimonials carousel updated', { currentIndex });
+  }
+
+  function goToSlide(index) {
+    const { totalTestimonials } = state.testimonialsState;
+
+    if (index < 0 || index >= totalTestimonials) {
+      return;
+    }
+
+    state.testimonialsState.currentIndex = index;
+    updateCarousel();
+    restartAutoRotate();
+  }
+
+  function goToPrevious() {
+    const { currentIndex } = state.testimonialsState;
+
+    if (currentIndex > 0) {
+      goToSlide(currentIndex - 1);
+    }
+  }
+
+  function goToNext() {
+    const { currentIndex, totalTestimonials } = state.testimonialsState;
+
+    if (currentIndex < totalTestimonials - 1) {
+      goToSlide(currentIndex + 1);
+    }
+  }
+
+  function startAutoRotate() {
+    if (state.testimonialsState.autoRotateTimer) {
+      return;
+    }
+
+    state.testimonialsState.autoRotateTimer = setInterval(() => {
+      if (!state.testimonialsState.isPaused) {
+        const { currentIndex, totalTestimonials } = state.testimonialsState;
+
+        if (currentIndex === totalTestimonials - 1) {
+          goToSlide(0);
+        } else {
+          goToNext();
+        }
+      }
+    }, 7000);
+
+    log('info', 'Testimonials auto-rotation started');
+  }
+
+  function stopAutoRotate() {
+    if (state.testimonialsState.autoRotateTimer) {
+      clearInterval(state.testimonialsState.autoRotateTimer);
+      state.testimonialsState.autoRotateTimer = null;
+      log('info', 'Testimonials auto-rotation stopped');
+    }
+  }
+
+  function restartAutoRotate() {
+    stopAutoRotate();
+    startAutoRotate();
+  }
+
+  function pause() {
+    state.testimonialsState.isPaused = true;
+  }
+
+  function resume() {
+    state.testimonialsState.isPaused = false;
+  }
+
+  if (prevButton) {
+    prevButton.addEventListener('click', goToPrevious);
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener('click', goToNext);
+  }
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => goToSlide(index));
+  });
+
+  const carousel = track.closest('.testimonials__carousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', pause);
+    carousel.addEventListener('mouseleave', resume);
+  }
+
+  updateCarousel();
+  startAutoRotate();
+
+  log('info', 'Testimonials carousel initialized');
 }
 
 // ============================================================================
@@ -756,6 +986,13 @@ async function initMinistryPage(ministryName = 'youth') {
       renderGallery(data.gallery, galleryContainer);
     }
 
+    const testimonialsTrack = querySelector(SELECTORS.TESTIMONIALS_TRACK);
+    const testimonialsIndicators = querySelector(SELECTORS.TESTIMONIALS_INDICATORS);
+    if (testimonialsTrack && data.testimonials) {
+      renderTestimonials(data.testimonials, testimonialsTrack, testimonialsIndicators);
+      initTestimonialsCarousel();
+    }
+
     log('info', 'Ministry page initialized successfully', { ministryName });
   } catch (error) {
     log('error', 'Ministry page initialization failed', {
@@ -775,10 +1012,21 @@ function cleanup() {
     state.intersectionObserver = null;
   }
 
+  if (state.testimonialsState.autoRotateTimer) {
+    clearInterval(state.testimonialsState.autoRotateTimer);
+    state.testimonialsState.autoRotateTimer = null;
+  }
+
   state.imageCache.clear();
   state.loadingImages.clear();
   state.ministryData = null;
   state.currentGalleryIndex = 0;
+  state.testimonialsState = {
+    currentIndex: 0,
+    totalTestimonials: 0,
+    autoRotateTimer: null,
+    isPaused: false,
+  };
 
   log('info', 'Ministry page cleanup completed');
 }
@@ -794,6 +1042,8 @@ export {
   renderSchedule,
   renderSpecialEvents,
   renderGallery,
+  renderTestimonials,
+  initTestimonialsCarousel,
   openGalleryModal,
   closeGalleryModal,
 };
