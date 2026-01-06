@@ -1,0 +1,293 @@
+{
+  "pages": {
+    "home": {
+      "title": "Grace Fellowship Church - Welcome Home",
+      "description": "Join our vibrant community of faith in worship, fellowship, and service. Experience authentic Christian community and grow in your relationship with God.",
+      "keywords": "church, fellowship, worship, community, faith, Christian, ministry, service",
+      "canonical": "/",
+      "openGraph": {
+        "title": "Grace Fellowship Church - Welcome Home",
+        "description": "Join our vibrant community of faith in worship, fellowship, and service.",
+        "type": "website",
+        "image": "/images/og-home.jpg",
+        "imageAlt": "Grace Fellowship Church building and community"
+      },
+      "structuredData": {
+        "@context": "https://schema.org",
+        "@type": "Church",
+        "name": "Grace Fellowship Church",
+        "description": "A vibrant community of faith dedicated to worship, fellowship, and service",
+        "url": "https://gracefellowship.church",
+        "logo": "https://gracefellowship.church/images/logo.png",
+        "image": "https://gracefellowship.church/images/church-building.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Faith Avenue",
+          "addressLocality": "Springfield",
+          "addressRegion": "IL",
+          "postalCode": "62701",
+          "addressCountry": "US"
+        },
+        "telephone": "+1-555-123-4567",
+        "email": "info@gracefellowship.church",
+        "sameAs": [
+          "https://facebook.com/gracefellowship",
+          "https://instagram.com/gracefellowship",
+          "https://youtube.com/gracefellowship"
+        ]
+      }
+    },
+    "about": {
+      "title": "About Us - Grace Fellowship Church",
+      "description": "Learn about our mission, beliefs, and history. Discover what makes Grace Fellowship Church a welcoming community committed to faith, hope, and love.",
+      "keywords": "about, mission, beliefs, history, values, church leadership, staff",
+      "canonical": "/about.html",
+      "openGraph": {
+        "title": "About Grace Fellowship Church",
+        "description": "Learn about our mission, beliefs, and history as a welcoming faith community.",
+        "type": "website",
+        "image": "/images/og-about.jpg",
+        "imageAlt": "Grace Fellowship Church leadership and community"
+      },
+      "structuredData": {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Grace Fellowship Church",
+        "description": "Our mission, beliefs, and history",
+        "mainEntity": {
+          "@type": "Church",
+          "name": "Grace Fellowship Church",
+          "foundingDate": "1985",
+          "founder": {
+            "@type": "Person",
+            "name": "Pastor John Smith"
+          }
+        }
+      }
+    },
+    "events": {
+      "title": "Events & Calendar - Grace Fellowship Church",
+      "description": "Discover upcoming worship services, community events, and special programs. Join us for meaningful gatherings that strengthen faith and build community.",
+      "keywords": "events, calendar, worship services, programs, activities, community gatherings",
+      "canonical": "/events.html",
+      "openGraph": {
+        "title": "Events & Calendar - Grace Fellowship Church",
+        "description": "Discover upcoming worship services, community events, and special programs.",
+        "type": "website",
+        "image": "/images/og-events.jpg",
+        "imageAlt": "Grace Fellowship Church events and activities"
+      },
+      "structuredData": {
+        "@context": "https://schema.org",
+        "@type": "EventSeries",
+        "name": "Grace Fellowship Church Events",
+        "description": "Regular worship services and special events",
+        "organizer": {
+          "@type": "Church",
+          "name": "Grace Fellowship Church",
+          "url": "https://gracefellowship.church"
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact Us - Grace Fellowship Church",
+      "description": "Get in touch with Grace Fellowship Church. Find our location, service times, and contact information. We'd love to hear from you and answer your questions.",
+      "keywords": "contact, location, directions, phone, email, service times, visit",
+      "canonical": "/contact.html",
+      "openGraph": {
+        "title": "Contact Grace Fellowship Church",
+        "description": "Get in touch with us. Find our location, service times, and contact information.",
+        "type": "website",
+        "image": "/images/og-contact.jpg",
+        "imageAlt": "Grace Fellowship Church location and contact"
+      },
+      "structuredData": {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Grace Fellowship Church",
+        "description": "Get in touch with our church community"
+      }
+    },
+    "ministries": {
+      "childrens": {
+        "title": "Children's Ministry - Grace Fellowship Church",
+        "description": "Nurturing young hearts with age-appropriate Bible teaching, fun activities, and caring mentorship. Building strong faith foundations for children.",
+        "keywords": "children's ministry, kids church, Sunday school, youth programs, Bible teaching",
+        "canonical": "/childrens.html",
+        "openGraph": {
+          "title": "Children's Ministry - Grace Fellowship Church",
+          "description": "Nurturing young hearts with Bible teaching, activities, and caring mentorship.",
+          "type": "website",
+          "image": "/images/og-childrens.jpg",
+          "imageAlt": "Children's ministry activities and programs"
+        },
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Children's Ministry - Grace Fellowship Church",
+          "description": "Faith-based programs for children",
+          "parentOrganization": {
+            "@type": "Church",
+            "name": "Grace Fellowship Church"
+          }
+        }
+      },
+      "youth": {
+        "title": "Youth Ministry - Grace Fellowship Church",
+        "description": "Empowering teens to grow in faith through dynamic worship, relevant teaching, and authentic community. Building disciples who impact their world.",
+        "keywords": "youth ministry, teen programs, youth group, student ministry, discipleship",
+        "canonical": "/youth.html",
+        "openGraph": {
+          "title": "Youth Ministry - Grace Fellowship Church",
+          "description": "Empowering teens through dynamic worship, teaching, and authentic community.",
+          "type": "website",
+          "image": "/images/og-youth.jpg",
+          "imageAlt": "Youth ministry programs and activities"
+        },
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Youth Ministry - Grace Fellowship Church",
+          "description": "Faith-based programs for teenagers",
+          "parentOrganization": {
+            "@type": "Church",
+            "name": "Grace Fellowship Church"
+          }
+        }
+      },
+      "mens": {
+        "title": "Men's Ministry - Grace Fellowship Church",
+        "description": "Building godly men through fellowship, accountability, and service. Strengthening faith, family, and community through authentic brotherhood.",
+        "keywords": "men's ministry, men's group, brotherhood, discipleship, accountability",
+        "canonical": "/mens.html",
+        "openGraph": {
+          "title": "Men's Ministry - Grace Fellowship Church",
+          "description": "Building godly men through fellowship, accountability, and service.",
+          "type": "website",
+          "image": "/images/og-mens.jpg",
+          "imageAlt": "Men's ministry fellowship and activities"
+        },
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Men's Ministry - Grace Fellowship Church",
+          "description": "Faith-based programs for men",
+          "parentOrganization": {
+            "@type": "Church",
+            "name": "Grace Fellowship Church"
+          }
+        }
+      },
+      "womens": {
+        "title": "Women's Ministry - Grace Fellowship Church",
+        "description": "Connecting women in faith, friendship, and purpose. Growing together through Bible study, prayer, and meaningful relationships that inspire and encourage.",
+        "keywords": "women's ministry, women's group, Bible study, fellowship, sisterhood",
+        "canonical": "/womens.html",
+        "openGraph": {
+          "title": "Women's Ministry - Grace Fellowship Church",
+          "description": "Connecting women in faith, friendship, and purpose through study and fellowship.",
+          "type": "website",
+          "image": "/images/og-womens.jpg",
+          "imageAlt": "Women's ministry fellowship and activities"
+        },
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Women's Ministry - Grace Fellowship Church",
+          "description": "Faith-based programs for women",
+          "parentOrganization": {
+            "@type": "Church",
+            "name": "Grace Fellowship Church"
+          }
+        }
+      },
+      "outreach": {
+        "title": "Outreach Ministry - Grace Fellowship Church",
+        "description": "Serving our community with compassion and purpose. Making a difference through local missions, volunteer opportunities, and acts of kindness.",
+        "keywords": "outreach, community service, missions, volunteer, charity, compassion",
+        "canonical": "/outreach.html",
+        "openGraph": {
+          "title": "Outreach Ministry - Grace Fellowship Church",
+          "description": "Serving our community with compassion through missions and volunteer work.",
+          "type": "website",
+          "image": "/images/og-outreach.jpg",
+          "imageAlt": "Outreach ministry community service"
+        },
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Outreach Ministry - Grace Fellowship Church",
+          "description": "Community service and mission programs",
+          "parentOrganization": {
+            "@type": "Church",
+            "name": "Grace Fellowship Church"
+          }
+        }
+      }
+    }
+  },
+  "defaults": {
+    "siteName": "Grace Fellowship Church",
+    "separator": " - ",
+    "locale": "en_US",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@gracefellowship",
+    "robots": "index, follow",
+    "googleSiteVerification": "",
+    "bingSiteVerification": "",
+    "themeColor": "#2563eb",
+    "appleTouchIcon": "/images/apple-touch-icon.png",
+    "favicon": "/favicon.ico"
+  },
+  "breadcrumbs": {
+    "home": {
+      "label": "Home",
+      "url": "/"
+    },
+    "about": {
+      "label": "About",
+      "url": "/about.html",
+      "parent": "home"
+    },
+    "events": {
+      "label": "Events",
+      "url": "/events.html",
+      "parent": "home"
+    },
+    "contact": {
+      "label": "Contact",
+      "url": "/contact.html",
+      "parent": "home"
+    },
+    "ministries": {
+      "label": "Ministries",
+      "url": "/",
+      "parent": "home"
+    },
+    "childrens": {
+      "label": "Children's Ministry",
+      "url": "/childrens.html",
+      "parent": "ministries"
+    },
+    "youth": {
+      "label": "Youth Ministry",
+      "url": "/youth.html",
+      "parent": "ministries"
+    },
+    "mens": {
+      "label": "Men's Ministry",
+      "url": "/mens.html",
+      "parent": "ministries"
+    },
+    "womens": {
+      "label": "Women's Ministry",
+      "url": "/womens.html",
+      "parent": "ministries"
+    },
+    "outreach": {
+      "label": "Outreach Ministry",
+      "url": "/outreach.html",
+      "parent": "ministries"
+    }
+  }
+}
