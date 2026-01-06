@@ -18,6 +18,11 @@
 @import url('./components/maps.css');
 
 /* ============================================
+   Utility Imports
+   ============================================ */
+@import url('./utils/accessibility.css');
+
+/* ============================================
    CSS Custom Properties (Design Tokens)
    ============================================ */
 :root {
@@ -175,6 +180,30 @@ body {
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================
+   Performance Optimizations
+   ============================================ */
+img,
+picture,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img {
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
+}
+
+img[loading="lazy"] {
+  content-visibility: auto;
 }
 
 /* ============================================
