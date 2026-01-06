@@ -1,0 +1,404 @@
+/* ============================================
+   Children's Ministry Theme Styles
+   Bright, playful, child-friendly design
+   ============================================ */
+
+/* ============================================
+   Children's Ministry Color Palette
+   ============================================ */
+:root {
+  /* Primary Colors - Bright and Cheerful */
+  --color-childrens-yellow: hsl(45, 100%, 50%);
+  --color-childrens-orange: hsl(30, 100%, 60%);
+  --color-childrens-coral: hsl(15, 100%, 65%);
+  --color-childrens-pink: hsl(330, 100%, 75%);
+  --color-childrens-blue: hsl(200, 100%, 60%);
+  --color-childrens-green: hsl(140, 70%, 55%);
+  --color-childrens-purple: hsl(270, 70%, 65%);
+  
+  /* Background Colors */
+  --color-childrens-bg-light: hsl(45, 100%, 95%);
+  --color-childrens-bg-cream: hsl(40, 60%, 97%);
+  
+  /* Text Colors */
+  --color-childrens-text-primary: hsl(220, 20%, 25%);
+  --color-childrens-text-secondary: hsl(220, 15%, 40%);
+}
+
+/* ============================================
+   Hero Section - Children's Ministry
+   ============================================ */
+.hero--childrens {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(400px, 50vh, 600px);
+  padding: var(--space-3xl) var(--space-md);
+  background: linear-gradient(135deg, 
+    var(--color-childrens-yellow) 0%, 
+    var(--color-childrens-orange) 50%, 
+    var(--color-childrens-coral) 100%);
+  color: white;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero--childrens::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1600&h=900&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.hero--childrens::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  z-index: -1;
+}
+
+.hero--childrens .hero__container {
+  max-width: var(--container-lg);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero--childrens .hero__title {
+  margin-block-end: var(--space-md);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+}
+
+.hero--childrens .hero__subtitle {
+  margin-block-end: var(--space-sm);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero--childrens .hero__description {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: var(--font-weight-medium);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   Leader Card - Children's Ministry Theme
+   ============================================ */
+.leader-card--childrens {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.leader-card--childrens:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+.leader-card--childrens .leader-card__image {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.leader-card--childrens .leader-card__role {
+  color: var(--color-childrens-orange);
+  font-weight: var(--font-weight-bold);
+}
+
+.leader-card--childrens .leader-card__email {
+  color: var(--color-childrens-orange);
+  font-weight: var(--font-weight-semibold);
+}
+
+.leader-card--childrens .leader-card__email:hover {
+  color: hsl(30, 100%, 50%);
+}
+
+/* ============================================
+   Schedule Card - Children's Ministry Theme
+   ============================================ */
+.schedule-card--childrens {
+  border-radius: var(--radius-xl);
+  border: 3px solid transparent;
+  background-image: 
+    linear-gradient(white, white),
+    linear-gradient(135deg, 
+      var(--color-childrens-yellow), 
+      var(--color-childrens-orange), 
+      var(--color-childrens-pink));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.schedule-card--childrens:hover {
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: var(--shadow-xl);
+}
+
+.schedule-card--childrens .schedule-card__name {
+  color: var(--color-childrens-orange);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-2xl);
+}
+
+.schedule-card--childrens .schedule-card__time strong {
+  color: var(--color-childrens-text-primary);
+}
+
+/* ============================================
+   Special Event Card - Children's Ministry Theme
+   ============================================ */
+.special-event-card--childrens {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, 
+    var(--color-childrens-bg-cream) 0%, 
+    white 100%);
+  border: 2px solid var(--color-childrens-yellow);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.special-event-card--childrens:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-childrens-orange);
+}
+
+.special-event-card--childrens .special-event-card__name {
+  color: var(--color-childrens-orange);
+  font-weight: var(--font-weight-bold);
+}
+
+.special-event-card--childrens .special-event-card__date {
+  color: var(--color-childrens-text-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   Contact Section - Children's Ministry Theme
+   ============================================ */
+.youth-contact--childrens .youth-contact__info {
+  border-radius: var(--radius-xl);
+  border: 3px solid var(--color-childrens-yellow);
+  background: linear-gradient(135deg, 
+    white 0%, 
+    var(--color-childrens-bg-cream) 100%);
+}
+
+.youth-contact--childrens .youth-contact__link {
+  color: var(--color-childrens-orange);
+  font-weight: var(--font-weight-semibold);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.youth-contact--childrens .youth-contact__link:hover {
+  color: hsl(30, 100%, 50%);
+  transform: translateX(4px);
+}
+
+.youth-contact--childrens .youth-contact__social-link {
+  color: var(--color-childrens-orange);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.youth-contact--childrens .youth-contact__social-link:hover {
+  color: hsl(30, 100%, 50%);
+  transform: translateX(4px);
+}
+
+/* ============================================
+   Gallery Items - Children's Ministry Theme
+   ============================================ */
+.youth-gallery .gallery-item {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.youth-gallery .gallery-item:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: var(--shadow-xl);
+}
+
+.youth-gallery .gallery-item__image {
+  border-radius: var(--radius-xl);
+}
+
+.youth-gallery .gallery-item__caption {
+  background: linear-gradient(to top, 
+    rgba(255, 140, 0, 0.9), 
+    rgba(255, 140, 0, 0.7) 50%, 
+    transparent);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ============================================
+   Section Backgrounds - Children's Ministry
+   ============================================ */
+.youth-intro {
+  background: linear-gradient(180deg, 
+    var(--color-childrens-bg-light) 0%, 
+    white 100%);
+}
+
+.youth-leadership {
+  background: linear-gradient(180deg, 
+    var(--color-childrens-bg-cream) 0%, 
+    var(--color-childrens-bg-light) 100%);
+}
+
+.youth-schedule {
+  background: linear-gradient(180deg, 
+    white 0%, 
+    var(--color-childrens-bg-cream) 100%);
+}
+
+.youth-gallery {
+  background: linear-gradient(180deg, 
+    var(--color-childrens-bg-light) 0%, 
+    var(--color-childrens-bg-cream) 100%);
+}
+
+/* ============================================
+   Mission Box - Children's Ministry Theme
+   ============================================ */
+.youth-intro__mission {
+  border-inline-start: 6px solid var(--color-childrens-orange);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, 
+    white 0%, 
+    var(--color-childrens-bg-cream) 100%);
+  box-shadow: var(--shadow-lg);
+}
+
+.youth-intro__mission-title {
+  color: var(--color-childrens-orange);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   Playful Decorative Elements
+   ============================================ */
+.youth-leadership__title::before,
+.youth-schedule__title::before,
+.youth-gallery__title::before {
+  content: '🌟';
+  display: inline-block;
+  margin-inline-end: var(--space-sm);
+  font-size: 1.2em;
+}
+
+.youth-leadership__title::after,
+.youth-schedule__title::after,
+.youth-gallery__title::after {
+  content: '🌟';
+  display: inline-block;
+  margin-inline-start: var(--space-sm);
+  font-size: 1.2em;
+}
+
+/* ============================================
+   Responsive Design - Tablet
+   ============================================ */
+@media (min-width: 768px) {
+  .hero--childrens .hero__title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  
+  .schedule-card--childrens:hover {
+    transform: translateY(-6px) rotate(-2deg);
+  }
+  
+  .special-event-card--childrens:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
+}
+
+/* ============================================
+   Responsive Design - Desktop
+   ============================================ */
+@media (min-width: 1024px) {
+  .hero--childrens {
+    min-height: clamp(500px, 60vh, 700px);
+  }
+  
+  .leader-card--childrens:hover {
+    transform: translateY(-8px) scale(1.03);
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .hero--childrens {
+    background: white;
+    color: black;
+    min-height: auto;
+  }
+  
+  .hero--childrens::before,
+  .hero--childrens::after {
+    display: none;
+  }
+  
+  .hero--childrens .hero__title,
+  .hero--childrens .hero__subtitle,
+  .hero--childrens .hero__description {
+    color: black;
+    text-shadow: none;
+  }
+  
+  .schedule-card--childrens,
+  .special-event-card--childrens,
+  .leader-card--childrens {
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+  
+  .youth-leadership__title::before,
+  .youth-leadership__title::after,
+  .youth-schedule__title::before,
+  .youth-schedule__title::after,
+  .youth-gallery__title::before,
+  .youth-gallery__title::after {
+    content: '';
+  }
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .hero--childrens::after,
+  .schedule-card--childrens,
+  .special-event-card--childrens,
+  .leader-card--childrens,
+  .gallery-item {
+    animation: none;
+    transition: none;
+  }
+  
+  .schedule-card--childrens:hover,
+  .special-event-card--childrens:hover,
+  .leader-card--childrens:hover,
+  .gallery-item:hover {
+    transform: none;
+  }
+}
