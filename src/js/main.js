@@ -7,12 +7,21 @@
  * - Mobile menu toggle
  * - Utility functions for common operations
  * - Performance monitoring
+ * - Lazy loading initialization
+ * - Accessibility utilities initialization
  * 
  * @module main
  * @generated-from: task-id:TASK-001
  * @modifies: none
- * @dependencies: []
+ * @dependencies: [lazy-loading, accessibility]
  */
+
+// ============================================================================
+// IMPORTS
+// ============================================================================
+
+import { init as initLazyLoading } from './utils/lazy-loading.js';
+import { initAccessibility } from './utils/accessibility.js';
 
 // ============================================================================
 // CONSTANTS & CONFIGURATION
@@ -398,6 +407,28 @@ function init() {
     
     // Initialize mobile menu
     initMobileMenu();
+    
+    // Initialize lazy loading
+    try {
+      initLazyLoading();
+      log('info', 'Lazy loading initialized');
+    } catch (error) {
+      log('error', 'Lazy loading initialization failed', { 
+        error: error.message, 
+        stack: error.stack 
+      });
+    }
+    
+    // Initialize accessibility utilities
+    try {
+      initAccessibility();
+      log('info', 'Accessibility utilities initialized');
+    } catch (error) {
+      log('error', 'Accessibility initialization failed', { 
+        error: error.message, 
+        stack: error.stack 
+      });
+    }
     
     performanceMark('init-end');
     performanceMeasure('total-init-time', 'init-start', 'init-end');
