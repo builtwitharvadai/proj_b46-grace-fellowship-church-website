@@ -1,0 +1,316 @@
+/* ============================================
+   Hero Section Component Styles
+   Mobile-first, BEM methodology, Responsive design
+   ============================================ */
+
+/* ============================================
+   Hero Base Styles
+   ============================================ */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: var(--space-3xl) var(--space-md);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ============================================
+   Hero Background Image
+   ============================================ */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2000&auto=format&fit=crop');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Parallax effect for larger screens */
+@media (min-width: 768px) {
+  .hero::before {
+    background-attachment: fixed;
+  }
+}
+
+/* Disable parallax for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    background-attachment: scroll;
+  }
+}
+
+/* ============================================
+   Hero Overlay
+   ============================================ */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    135deg,
+    rgba(33, 150, 243, 0.85) 0%,
+    rgba(21, 101, 192, 0.9) 100%
+  );
+}
+
+/* Dark mode overlay adjustment */
+@media (prefers-color-scheme: dark) {
+  .hero::after {
+    background: linear-gradient(
+      135deg,
+      rgba(33, 150, 243, 0.75) 0%,
+      rgba(21, 101, 192, 0.85) 100%
+    );
+  }
+}
+
+/* ============================================
+   Hero Container
+   ============================================ */
+.hero__container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-lg);
+  width: 100%;
+  text-align: center;
+}
+
+/* ============================================
+   Hero Title
+   ============================================ */
+.hero__title {
+  margin-block-end: var(--space-md);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: hero-fade-in 0.8s ease-out;
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__title {
+    font-size: clamp(2.5rem, 2rem + 2.5vw, 3.5rem);
+  }
+}
+
+/* ============================================
+   Hero Subtitle
+   ============================================ */
+.hero__subtitle {
+  margin-block-end: var(--space-xl);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-primary-100);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  animation: hero-fade-in 0.8s ease-out 0.2s both;
+}
+
+@media (min-width: 768px) {
+  .hero__subtitle {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__subtitle {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ============================================
+   Hero Call-to-Action Buttons
+   ============================================ */
+.hero__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  animation: hero-fade-in 0.8s ease-out 0.4s both;
+}
+
+@media (min-width: 640px) {
+  .hero__cta {
+    flex-direction: row;
+  }
+}
+
+.hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.hero__button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+/* Primary button variant */
+.hero__button--primary {
+  background-color: white;
+  color: var(--color-primary-700);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero__button--primary:hover {
+  background-color: var(--color-primary-50);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.hero__button--primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+/* Secondary button variant */
+.hero__button--secondary {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.hero__button--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.hero__button--secondary:active {
+  transform: translateY(0);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   Hero Animations
+   ============================================ */
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Disable animations for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero__title,
+  .hero__subtitle,
+  .hero__cta {
+    animation: none;
+  }
+
+  .hero__button {
+    transition: none;
+  }
+
+  .hero__button:hover,
+  .hero__button--primary:hover,
+  .hero__button--secondary:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Responsive Height Adjustments
+   ============================================ */
+@media (min-width: 768px) {
+  .hero {
+    min-height: 70vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 80vh;
+  }
+}
+
+/* Adjust for very short viewports */
+@media (max-height: 600px) {
+  .hero {
+    min-height: 100vh;
+    padding-block: var(--space-2xl);
+  }
+}
+
+/* ============================================
+   High Contrast Mode Support
+   ============================================ */
+@media (prefers-contrast: high) {
+  .hero::after {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .hero__button--primary {
+    border-color: white;
+  }
+
+  .hero__button--secondary {
+    border-width: 3px;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .hero {
+    min-height: auto;
+    padding: var(--space-xl) var(--space-md);
+    background: none;
+    color: black;
+  }
+
+  .hero::before,
+  .hero::after {
+    display: none;
+  }
+
+  .hero__title,
+  .hero__subtitle {
+    color: black;
+    text-shadow: none;
+  }
+
+  .hero__cta {
+    display: none;
+  }
+}
+
+/* ============================================
+   Feature Flag Support
+   ============================================ */
+.hero[data-feature-flag="off"] {
+  display: none;
+}

@@ -4,6 +4,13 @@
    ============================================ */
 
 /* ============================================
+   Component Imports
+   ============================================ */
+@import url('./components/hero.css');
+@import url('./components/service-times.css');
+@import url('./components/location-preview.css');
+
+/* ============================================
    CSS Custom Properties (Design Tokens)
    ============================================ */
 :root {
@@ -97,6 +104,12 @@
   --container-md: 768px;
   --container-lg: 1024px;
   --container-xl: 1280px;
+
+  /* Responsive Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
 }
 
 /* ============================================
@@ -281,36 +294,6 @@ a:focus-visible {
     flex-direction: row;
     gap: var(--space-lg);
   }
-}
-
-/* ============================================
-   Hero Section - BEM Structure
-   ============================================ */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  padding: var(--space-3xl) var(--space-md);
-  background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-800));
-  color: white;
-  text-align: center;
-}
-
-.hero__container {
-  max-width: var(--container-lg);
-}
-
-.hero__title {
-  margin-block-end: var(--space-md);
-  color: white;
-}
-
-.hero__subtitle {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-primary-100);
 }
 
 /* ============================================
