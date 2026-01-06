@@ -1,0 +1,232 @@
+{
+  "title": "Men's Fellowship",
+  "slug": "mens",
+  "description": "Grace Fellowship Men's Ministry is dedicated to building strong, godly men who lead their families, serve their communities, and grow in their faith. Through fellowship, accountability, and biblical teaching, we equip men to be spiritual leaders and faithful disciples of Christ.",
+  "mission": "To develop men of integrity who pursue Christ, strengthen families, and impact their world for God's kingdom through authentic relationships and biblical discipleship.",
+  "hero": {
+    "image": "/images/ministries/mens-hero.jpg",
+    "alt": "Men's Fellowship gathering in prayer and worship"
+  },
+  "leadership": [
+    {
+      "name": "David Thompson",
+      "role": "Men's Ministry Director",
+      "image": "/images/staff/david-thompson.jpg",
+      "bio": "David has been leading men's ministry for over 15 years, with a passion for mentoring and discipleship. He believes in the power of authentic male friendships and accountability.",
+      "email": "david.thompson@gracefellowship.org",
+      "phone": "(555) 234-5678"
+    },
+    {
+      "name": "Marcus Johnson",
+      "role": "Small Groups Coordinator",
+      "image": "/images/staff/marcus-johnson.jpg",
+      "bio": "Marcus coordinates our men's small groups and Bible studies, ensuring every man has a place to connect, grow, and be challenged in their faith journey.",
+      "email": "marcus.johnson@gracefellowship.org",
+      "phone": "(555) 234-5679"
+    }
+  ],
+  "schedule": {
+    "regular": [
+      {
+        "name": "Men's Prayer Breakfast",
+        "day": "Saturday",
+        "time": "7:00 AM - 9:00 AM",
+        "frequency": "First Saturday of each month",
+        "location": "Fellowship Hall",
+        "description": "Start your month strong with prayer, breakfast, and fellowship with brothers in Christ."
+      },
+      {
+        "name": "Iron Sharpens Iron",
+        "day": "Tuesday",
+        "time": "6:30 PM - 8:00 PM",
+        "frequency": "Weekly",
+        "location": "Room 201",
+        "description": "Small group Bible study and accountability focused on practical Christian living and spiritual growth."
+      },
+      {
+        "name": "Men's Basketball League",
+        "day": "Thursday",
+        "time": "7:00 PM - 9:00 PM",
+        "frequency": "Weekly (September - March)",
+        "location": "Church Gymnasium",
+        "description": "Fellowship through friendly competition. All skill levels welcome."
+      }
+    ],
+    "special": [
+      {
+        "name": "Annual Men's Retreat",
+        "date": "September 15-17, 2024",
+        "location": "Mountain View Conference Center",
+        "description": "Three days of worship, teaching, outdoor activities, and deep fellowship in the mountains."
+      },
+      {
+        "name": "Father-Son Campout",
+        "date": "June 10-11, 2024",
+        "location": "Pine Ridge Campground",
+        "description": "Build memories and strengthen bonds through camping, fishing, and campfire devotions."
+      },
+      {
+        "name": "Serve Day",
+        "date": "Monthly - Third Saturday",
+        "location": "Various community locations",
+        "description": "Put faith into action by serving our community through hands-on projects and outreach."
+      }
+    ]
+  },
+  "activities": [
+    {
+      "title": "Bible Studies",
+      "description": "Weekly small groups studying Scripture and applying biblical principles to daily life, work, and family.",
+      "icon": "book"
+    },
+    {
+      "title": "Accountability Groups",
+      "description": "Confidential groups of 3-5 men committed to honest sharing, prayer support, and mutual encouragement.",
+      "icon": "users"
+    },
+    {
+      "title": "Service Projects",
+      "description": "Regular opportunities to serve the church, community, and those in need through practical hands-on ministry.",
+      "icon": "tools"
+    },
+    {
+      "title": "Mentorship Program",
+      "description": "Connecting younger men with mature believers for guidance, wisdom, and spiritual development.",
+      "icon": "handshake"
+    },
+    {
+      "title": "Sports & Recreation",
+      "description": "Building friendships through basketball, golf outings, fishing trips, and other recreational activities.",
+      "icon": "basketball"
+    },
+    {
+      "title": "Marriage Enrichment",
+      "description": "Resources and events to help men become better husbands and strengthen their marriages.",
+      "icon": "heart"
+    }
+  ],
+  "events": [
+    {
+      "title": "Wild Game Dinner",
+      "date": "2024-11-16",
+      "time": "6:00 PM",
+      "location": "Fellowship Hall",
+      "description": "Annual dinner featuring wild game dishes, guest speaker, and great fellowship. Bring a friend!",
+      "registrationRequired": true,
+      "cost": "$15 per person"
+    },
+    {
+      "title": "Leadership Summit",
+      "date": "2024-10-05",
+      "time": "8:00 AM - 4:00 PM",
+      "location": "Main Sanctuary",
+      "description": "Full-day conference on biblical leadership in home, workplace, and church with nationally recognized speakers.",
+      "registrationRequired": true,
+      "cost": "$35 per person"
+    },
+    {
+      "title": "Theology on Tap",
+      "date": "2024-09-20",
+      "time": "7:00 PM",
+      "location": "Local Coffee House",
+      "description": "Informal discussion of faith, theology, and life over coffee. Open forum for questions and dialogue.",
+      "registrationRequired": false,
+      "cost": "Free"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Daily Devotional",
+      "description": "30-day devotional guide for men seeking to deepen their walk with Christ",
+      "type": "PDF",
+      "url": "/resources/mens-devotional.pdf"
+    },
+    {
+      "title": "Recommended Reading List",
+      "description": "Curated list of books on Christian manhood, leadership, and spiritual growth",
+      "type": "PDF",
+      "url": "/resources/mens-reading-list.pdf"
+    },
+    {
+      "title": "Marriage Resources",
+      "description": "Tools and materials for strengthening your marriage and family relationships",
+      "type": "Link",
+      "url": "/resources/marriage"
+    },
+    {
+      "title": "Accountability Questions",
+      "description": "Weekly questions for accountability group discussions",
+      "type": "PDF",
+      "url": "/resources/accountability-questions.pdf"
+    }
+  ],
+  "gallery": [
+    {
+      "image": "/images/ministries/mens-retreat-worship.jpg",
+      "alt": "Men worshiping together at annual retreat",
+      "caption": "Powerful worship at our 2023 Men's Retreat"
+    },
+    {
+      "image": "/images/ministries/mens-breakfast.jpg",
+      "alt": "Men sharing breakfast and fellowship",
+      "caption": "Monthly prayer breakfast brings men together"
+    },
+    {
+      "image": "/images/ministries/mens-service-project.jpg",
+      "alt": "Men working on community service project",
+      "caption": "Serving our community through hands-on projects"
+    },
+    {
+      "image": "/images/ministries/father-son-campout.jpg",
+      "alt": "Fathers and sons around campfire",
+      "caption": "Building memories at Father-Son Campout"
+    },
+    {
+      "image": "/images/ministries/mens-basketball.jpg",
+      "alt": "Men playing basketball in church gym",
+      "caption": "Fellowship through friendly competition"
+    },
+    {
+      "image": "/images/ministries/mens-bible-study.jpg",
+      "alt": "Men studying the Bible together",
+      "caption": "Iron sharpens iron in weekly Bible study"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Robert Martinez",
+      "quote": "The men's ministry has transformed my life. Through accountability and biblical teaching, I've become a better husband, father, and follower of Christ.",
+      "role": "Member since 2019"
+    },
+    {
+      "name": "James Wilson",
+      "quote": "I found brothers who challenge me, support me, and pray for me. This is what authentic Christian community looks like.",
+      "role": "Small Group Leader"
+    },
+    {
+      "name": "Michael Chen",
+      "quote": "The mentorship I received here gave me the guidance I needed as a young man. Now I have the privilege of mentoring others.",
+      "role": "Mentorship Program Participant"
+    }
+  ],
+  "contact": {
+    "email": "mens@gracefellowship.org",
+    "phone": "(555) 234-5678",
+    "office": "Room 201, Grace Fellowship Church"
+  },
+  "socialMedia": {
+    "facebook": "https://facebook.com/gracefellowshipmens",
+    "instagram": "@gfcmens"
+  },
+  "joinInfo": {
+    "title": "Join Us",
+    "description": "Every man is welcome regardless of where you are in your faith journey. Whether you're a new believer or have walked with Christ for years, there's a place for you in our men's ministry.",
+    "steps": [
+      "Attend a Saturday prayer breakfast or Tuesday night study",
+      "Connect with one of our leaders",
+      "Join a small group or accountability team",
+      "Get involved in service and fellowship activities"
+    ],
+    "callToAction": "Ready to take the next step? Contact us today or show up to any of our regular meetings. No RSVP needed - just come as you are."
+  }
+}
