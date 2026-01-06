@@ -9,11 +9,14 @@
  * - Performance monitoring
  * - Lazy loading initialization
  * - Accessibility utilities initialization
+ * - Analytics tracking initialization
+ * - Progressive image loading initialization
+ * - Offline functionality initialization
  * 
  * @module main
  * @generated-from: task-id:TASK-001
  * @modifies: none
- * @dependencies: [lazy-loading, accessibility]
+ * @dependencies: [lazy-loading, accessibility, analytics, progressive-images, offline]
  */
 
 // ============================================================================
@@ -22,6 +25,9 @@
 
 import { init as initLazyLoading } from './utils/lazy-loading.js';
 import { initAccessibility } from './utils/accessibility.js';
+import { init as initAnalytics } from './utils/analytics.js';
+import { init as initProgressiveImages } from './utils/progressive-images.js';
+import { init as initOffline } from './utils/offline.js';
 
 // ============================================================================
 // CONSTANTS & CONFIGURATION
@@ -33,6 +39,8 @@ const CONFIG = Object.freeze({
   MOBILE_BREAKPOINT: 768,
   DEBOUNCE_DELAY: 150,
   PERFORMANCE_MARK_PREFIX: 'gfc',
+  ANALYTICS_MEASUREMENT_ID: 'G-XXXXXXXXXX', // Replace with actual GA4 measurement ID
+  ANALYTICS_DEBUG_MODE: false,
 });
 
 const SELECTORS = Object.freeze({
@@ -425,6 +433,42 @@ function init() {
       log('info', 'Accessibility utilities initialized');
     } catch (error) {
       log('error', 'Accessibility initialization failed', { 
+        error: error.message, 
+        stack: error.stack 
+      });
+    }
+    
+    // Initialize Google Analytics 4
+    try {
+      initAnalytics({
+        measurementId: CONFIG.ANALYTICS_MEASUREMENT_ID,
+        debugMode: CONFIG.ANALYTICS_DEBUG_MODE,
+      });
+      log('info', 'Google Analytics 4 initialized');
+    } catch (error) {
+      log('error', 'Analytics initialization failed', { 
+        error: error.message, 
+        stack: error.stack 
+      });
+    }
+    
+    // Initialize progressive image loading
+    try {
+      initProgressiveImages();
+      log('info', 'Progressive image loading initialized');
+    } catch (error) {
+      log('error', 'Progressive images initialization failed', { 
+        error: error.message, 
+        stack: error.stack 
+      });
+    }
+    
+    // Initialize offline functionality
+    try {
+      initOffline();
+      log('info', 'Offline functionality initialized');
+    } catch (error) {
+      log('error', 'Offline functionality initialization failed', { 
         error: error.message, 
         stack: error.stack 
       });

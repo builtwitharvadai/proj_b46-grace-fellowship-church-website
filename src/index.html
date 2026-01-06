@@ -18,6 +18,29 @@
   
   <link rel="canonical" href="https://gracefellowshipchurch.org">
   
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    // Configure GA4 with privacy settings
+    gtag('config', 'G-XXXXXXXXXX', {
+      'anonymize_ip': true,
+      'allow_google_signals': false,
+      'allow_ad_personalization_signals': false,
+      'cookie_flags': 'SameSite=Strict;Secure',
+      'send_page_view': false
+    });
+    
+    // Set default consent
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied'
+    });
+  </script>
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,6 +84,17 @@
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Analytics Privacy Notice -->
+  <div id="analytics-notice" class="analytics-notice" role="alert" aria-live="polite" style="display: none;">
+    <div class="analytics-notice__content">
+      <p>We use analytics to improve your experience. Your data is anonymized and never shared.</p>
+      <div class="analytics-notice__actions">
+        <button type="button" id="analytics-accept" class="analytics-notice__button analytics-notice__button--accept">Accept</button>
+        <button type="button" id="analytics-decline" class="analytics-notice__button analytics-notice__button--decline">Decline</button>
+      </div>
+    </div>
+  </div>
   
   <header role="banner">
     <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -273,5 +307,66 @@
       </nav>
     </div>
   </footer>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          .then(registration => {
+            console.log('[GFC] Service Worker registered:', registration.scope);
+          })
+          .catch(error => {
+            console.error('[GFC] Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+  
+  <!-- Analytics Consent Management -->
+  <script>
+    (function() {
+      const CONSENT_KEY = 'gfc_analytics_consent';
+      const notice = document.getElementById('analytics-notice');
+      const acceptBtn = document.getElementById('analytics-accept');
+      const declineBtn = document.getElementById('analytics-decline');
+      
+      function setConsent(granted) {
+        localStorage.setItem(CONSENT_KEY, granted ? 'granted' : 'denied');
+        
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'analytics_storage': granted ? 'granted' : 'denied'
+          });
+        }
+        
+        if (notice) {
+          notice.style.display = 'none';
+        }
+      }
+      
+      function checkConsent() {
+        const consent = localStorage.getItem(CONSENT_KEY);
+        
+        if (consent === null) {
+          if (notice) {
+            notice.style.display = 'block';
+          }
+        } else if (consent === 'granted') {
+          setConsent(true);
+        }
+      }
+      
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => setConsent(true));
+      }
+      
+      if (declineBtn) {
+        declineBtn.addEventListener('click', () => setConsent(false));
+      }
+      
+      checkConsent();
+    })();
+  </script>
 </body>
 </html>
