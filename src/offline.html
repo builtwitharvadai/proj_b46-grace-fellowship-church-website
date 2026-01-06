@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <title>You're Offline | Grace Fellowship Church</title>
+  <meta name="description" content="Grace Fellowship Church offline page - You're currently offline. Please check your internet connection.">
+  
+  <style>
+    /* Critical inline styles for offline page */
+    :root {
+      --color-primary-600: hsl(210, 100%, 45%);
+      --color-neutral-50: hsl(0, 0%, 98%);
+      --color-neutral-700: hsl(0, 0%, 30%);
+      --color-neutral-900: hsl(0, 0%, 10%);
+      --color-surface: hsl(0, 0%, 100%);
+      --color-border: hsl(0, 0%, 90%);
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --font-size-base: 1rem;
+      --font-size-lg: 1.125rem;
+      --font-size-xl: 1.25rem;
+      --font-size-2xl: 1.5rem;
+      --font-size-3xl: 1.875rem;
+      --radius-lg: 0.75rem;
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-md);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: var(--font-size-base);
+      line-height: 1.5;
+      color: var(--color-neutral-900);
+      background-color: var(--color-neutral-50);
+      text-align: center;
+    }
+
+    .offline-container {
+      max-width: 600px;
+      width: 100%;
+      padding: var(--space-2xl) var(--space-xl);
+      background-color: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .offline-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--space-xl);
+      fill: var(--color-primary-600);
+    }
+
+    .offline-title {
+      margin-bottom: var(--space-md);
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      color: var(--color-neutral-900);
+    }
+
+    .offline-message {
+      margin-bottom: var(--space-xl);
+      font-size: var(--font-size-lg);
+      color: var(--color-neutral-700);
+      line-height: 1.75;
+    }
+
+    .offline-info {
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+      background-color: var(--color-neutral-50);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      text-align: left;
+    }
+
+    .offline-info h2 {
+      margin-bottom: var(--space-md);
+      font-size: var(--font-size-xl);
+      font-weight: 600;
+      color: var(--color-neutral-900);
+    }
+
+    .offline-info-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .offline-info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: var(--space-md);
+      font-size: var(--font-size-base);
+      color: var(--color-neutral-700);
+    }
+
+    .offline-info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .offline-info-label {
+      min-width: 80px;
+      font-weight: 600;
+      color: var(--color-neutral-900);
+    }
+
+    .offline-info-value {
+      flex: 1;
+    }
+
+    .offline-info-value a {
+      color: var(--color-primary-600);
+      text-decoration: none;
+    }
+
+    .offline-info-value a:hover {
+      text-decoration: underline;
+    }
+
+    .offline-actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+
+    .offline-button {
+      display: inline-block;
+      padding: var(--space-md) var(--space-xl);
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: white;
+      background-color: var(--color-primary-600);
+      border: none;
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.15s ease-in-out;
+    }
+
+    .offline-button:hover {
+      opacity: 0.9;
+    }
+
+    .offline-button:focus-visible {
+      outline: 2px solid var(--color-primary-600);
+      outline-offset: 2px;
+    }
+
+    .offline-instructions {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .offline-instructions h3 {
+      margin-bottom: var(--space-md);
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--color-neutral-900);
+    }
+
+    .offline-instructions ol {
+      text-align: left;
+      padding-left: var(--space-xl);
+      color: var(--color-neutral-700);
+    }
+
+    .offline-instructions li {
+      margin-bottom: var(--space-md);
+      line-height: 1.75;
+    }
+
+    @media (min-width: 640px) {
+      .offline-actions {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-neutral-50: hsl(0, 0%, 10%);
+        --color-neutral-700: hsl(0, 0%, 80%);
+        --color-neutral-900: hsl(0, 0%, 98%);
+        --color-surface: hsl(0, 0%, 20%);
+        --color-border: hsl(0, 0%, 30%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .offline-button {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="offline-container" role="main">
+    <svg class="offline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+      <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" opacity="0.3"/>
+    </svg>
+
+    <h1 class="offline-title">You're Offline</h1>
+    
+    <p class="offline-message">
+      It looks like you've lost your internet connection. Don't worry, you can still view some of our cached content.
+    </p>
+
+    <div class="offline-info">
+      <h2>Grace Fellowship Church</h2>
+      <ul class="offline-info-list">
+        <li class="offline-info-item">
+          <span class="offline-info-label">Address:</span>
+          <span class="offline-info-value">123 Faith Avenue, Lagos, Nigeria</span>
+        </li>
+        <li class="offline-info-item">
+          <span class="offline-info-label">Phone:</span>
+          <span class="offline-info-value">
+            <a href="tel:+2341234567890">+234 123 456 7890</a>
+          </span>
+        </li>
+        <li class="offline-info-item">
+          <span class="offline-info-label">Email:</span>
+          <span class="offline-info-value">
+            <a href="mailto:info@gracefellowship.ng">info@gracefellowship.ng</a>
+          </span>
+        </li>
+        <li class="offline-info-item">
+          <span class="offline-info-label">Services:</span>
+          <span class="offline-info-value">
+            Sundays at 8:00 AM and 10:30 AM<br>
+            Wednesdays at 6:00 PM
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="offline-actions">
+      <button 
+        type="button" 
+        class="offline-button" 
+        onclick="window.location.reload()"
+        aria-label="Try to reload the page"
+      >
+        Try Again
+      </button>
+      <a 
+        href="/" 
+        class="offline-button"
+        aria-label="Go to homepage"
+      >
+        Go to Homepage
+      </a>
+    </div>
+
+    <div class="offline-instructions">
+      <h3>When Your Connection Returns:</h3>
+      <ol>
+        <li>Check your Wi-Fi or mobile data connection</li>
+        <li>Click the "Try Again" button above to reload the page</li>
+        <li>Visit our homepage to see all available content</li>
+        <li>Some pages may be available offline if you've visited them before</li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    // Check connection status and update UI
+    function updateOnlineStatus() {
+      if (navigator.onLine) {
+        window.location.reload();
+      }
+    }
+
+    // Listen for online event
+    window.addEventListener('online', updateOnlineStatus);
+
+    // Periodically check connection
+    setInterval(() => {
+      if (navigator.onLine) {
+        updateOnlineStatus();
+      }
+    }, 5000);
+  </script>
+</body>
+</html>
