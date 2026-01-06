@@ -1,0 +1,466 @@
+/* ============================================
+   Location Preview Component Styles
+   Mobile-first, BEM methodology, Map integration
+   ============================================ */
+
+/* ============================================
+   Location Section Base
+   ============================================ */
+.location-preview {
+  padding: var(--space-3xl) var(--space-md);
+  background-color: var(--color-background);
+}
+
+.location-preview__container {
+  max-width: var(--container-lg);
+  margin-inline: auto;
+}
+
+.location-preview__title {
+  margin-block-end: var(--space-xl);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.location-preview__description {
+  max-width: 65ch;
+  margin-inline: auto;
+  margin-block-end: var(--space-2xl);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* ============================================
+   Location Card Layout
+   ============================================ */
+.location-preview__card {
+  display: grid;
+  gap: var(--space-xl);
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* Mobile: Single column */
+@media (min-width: 768px) {
+  .location-preview__card {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    padding: var(--space-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .location-preview__card {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+/* ============================================
+   Map Preview Section
+   ============================================ */
+.location-preview__map-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-neutral-100);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@supports not (aspect-ratio: 16 / 9) {
+  .location-preview__map-wrapper {
+    padding-top: 56.25%;
+    height: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .location-preview__map-wrapper {
+    aspect-ratio: 4 / 3;
+  }
+  
+  @supports not (aspect-ratio: 4 / 3) {
+    .location-preview__map-wrapper {
+      padding-top: 75%;
+    }
+  }
+}
+
+.location-preview__map-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--color-neutral-100), var(--color-neutral-200));
+  color: var(--color-text-muted);
+}
+
+.location-preview__map-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239CA3AF'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7'/%3E%3C/svg%3E");
+  background-size: 4rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.3;
+}
+
+.location-preview__map-text {
+  position: relative;
+  z-index: 1;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.location-preview__map-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.location-preview__map-link {
+  position: absolute;
+  inset-block-end: var(--space-md);
+  inset-inline-end: var(--space-md);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  background-color: var(--color-primary-600);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.location-preview__map-link:hover {
+  background-color: var(--color-primary-700);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  text-decoration: none;
+}
+
+.location-preview__map-link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.location-preview__map-link::after {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Dark mode map adjustments */
+@media (prefers-color-scheme: dark) {
+  .location-preview__map-placeholder {
+    background: linear-gradient(135deg, var(--color-neutral-800), var(--color-neutral-700));
+  }
+}
+
+/* ============================================
+   Address Information Section
+   ============================================ */
+.location-preview__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.location-preview__address {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-neutral-50);
+  border-radius: var(--radius-md);
+  border-inline-start: 4px solid var(--color-primary-500);
+}
+
+@media (prefers-color-scheme: dark) {
+  .location-preview__address {
+    background-color: var(--color-neutral-800);
+  }
+}
+
+.location-preview__address-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-xs);
+}
+
+.location-preview__address-icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-primary-600);
+}
+
+.location-preview__address-icon::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232196F3' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.location-preview__address-title {
+  margin-block-end: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.location-preview__address-content {
+  font-style: normal;
+}
+
+.location-preview__address-line {
+  display: block;
+  margin-block-end: var(--space-xs);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.location-preview__address-line:last-child {
+  margin-block-end: 0;
+}
+
+/* ============================================
+   Contact Details Section
+   ============================================ */
+.location-preview__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.location-preview__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.location-preview__contact-item:hover {
+  border-color: var(--color-primary-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.location-preview__contact-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-block-start: 0.125rem;
+}
+
+.location-preview__contact-icon--phone::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232196F3' viewBox='0 0 24 24'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.location-preview__contact-icon--email::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232196F3' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.location-preview__contact-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.location-preview__contact-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.location-preview__contact-link {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary-600);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.location-preview__contact-link:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+.location-preview__contact-link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   Directions Button
+   ============================================ */
+.location-preview__directions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  background-color: var(--color-primary-600);
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.location-preview__directions:hover {
+  background-color: var(--color-primary-700);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+
+.location-preview__directions:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.location-preview__directions:active {
+  transform: translateY(0);
+}
+
+.location-preview__directions::before {
+  content: '';
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .location-preview__directions {
+    width: auto;
+  }
+}
+
+/* ============================================
+   Accessibility Enhancements
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .location-preview__card,
+  .location-preview__contact-item,
+  .location-preview__map-link,
+  .location-preview__directions {
+    transition: none;
+  }
+
+  .location-preview__map-link:hover,
+  .location-preview__directions:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   High Contrast Mode Support
+   ============================================ */
+@media (prefers-contrast: high) {
+  .location-preview__card,
+  .location-preview__address,
+  .location-preview__contact-item {
+    border-width: 2px;
+  }
+
+  .location-preview__map-link,
+  .location-preview__directions {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .location-preview {
+    padding: var(--space-xl) 0;
+  }
+
+  .location-preview__card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid black;
+  }
+
+  .location-preview__map-wrapper {
+    display: none;
+  }
+
+  .location-preview__map-link,
+  .location-preview__directions {
+    display: none;
+  }
+
+  .location-preview__contact-link {
+    color: black;
+    text-decoration: underline;
+  }
+
+  .location-preview__contact-link::after {
+    content: " (" attr(href) ")";
+    font-size: var(--font-size-xs);
+  }
+}
