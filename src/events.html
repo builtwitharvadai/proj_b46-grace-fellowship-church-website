@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <title>Events | Grace Fellowship Church</title>
+  <meta name="description" content="Discover upcoming events at Grace Fellowship Church. Filter by category, search events, and add them to your calendar.">
+  
+  <meta property="og:title" content="Events | Grace Fellowship Church">
+  <meta property="og:description" content="Join us for worship services, community outreach, youth programs, and special events.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gracefellowship.church/events.html">
+  
+  <link rel="canonical" href="https://gracefellowship.church/events.html">
+  
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EventSchedule",
+    "name": "Grace Fellowship Church Events",
+    "description": "Upcoming events at Grace Fellowship Church",
+    "location": {
+      "@type": "Place",
+      "name": "Grace Fellowship Church",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lagos",
+        "addressCountry": "NG"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <header role="banner">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__container">
+        <div class="nav__logo">
+          <a href="/" class="nav__logo-text">Grace Fellowship</a>
+        </div>
+        
+        <button 
+          class="nav__toggle" 
+          aria-expanded="false" 
+          aria-controls="nav-menu"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="nav__toggle-icon"></span>
+        </button>
+        
+        <ul class="nav__menu" id="nav-menu" role="list" aria-hidden="true">
+          <li class="nav__item">
+            <a href="/" class="nav__link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="/about.html" class="nav__link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="/events.html" class="nav__link" aria-current="page">Events</a>
+          </li>
+          <li class="nav__item">
+            <a href="/contact.html" class="nav__link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <main id="main" role="main" class="events-page-container">
+    <section class="events" aria-labelledby="events-title">
+      <div class="events__container">
+        <header class="events__header">
+          <h1 id="events-title" class="events__title">Upcoming Events</h1>
+          <p class="events__description">
+            Join us for worship, fellowship, and community outreach. Filter events by category or search to find what interests you.
+          </p>
+        </header>
+        
+        <div class="events__controls" role="group" aria-label="Event filters and search">
+          <search role="search" class="events__search">
+            <form action="#" method="GET" onsubmit="return false;">
+              <label for="event-search" class="sr-only">Search events</label>
+              <input 
+                type="search" 
+                id="event-search"
+                name="q"
+                class="events__search-input"
+                placeholder="Search events..."
+                autocomplete="off"
+                spellcheck="true"
+                aria-label="Search events by title, description, or category"
+              >
+            </form>
+          </search>
+          
+          <div class="events__filters">
+            <fieldset class="events__filter-group">
+              <legend class="events__filter-label">Filter by Category</legend>
+              <div class="events__filter-options">
+                <label class="events__filter-option">
+                  <input 
+                    type="radio" 
+                    name="category" 
+                    value="all"
+                    checked
+                    aria-label="Show all events"
+                  >
+                  <span>All Events</span>
+                </label>
+                <label class="events__filter-option">
+                  <input 
+                    type="radio" 
+                    name="category" 
+                    value="worship"
+                    aria-label="Show worship events"
+                  >
+                  <span>Worship</span>
+                </label>
+                <label class="events__filter-option">
+                  <input 
+                    type="radio" 
+                    name="category" 
+                    value="youth"
+                    aria-label="Show youth events"
+                  >
+                  <span>Youth</span>
+                </label>
+                <label class="events__filter-option">
+                  <input 
+                    type="radio" 
+                    name="category" 
+                    value="outreach"
+                    aria-label="Show outreach events"
+                  >
+                  <span>Outreach</span>
+                </label>
+                <label class="events__filter-option">
+                  <input 
+                    type="radio" 
+                    name="category" 
+                    value="special"
+                    aria-label="Show special events"
+                  >
+                  <span>Special Events</span>
+                </label>
+              </div>
+            </fieldset>
+            
+            <fieldset class="events__filter-group">
+              <legend class="events__filter-label">Filter by Date</legend>
+              <div class="events__date-filters">
+                <div class="events__date-field">
+                  <label for="date-from" class="sr-only">From date</label>
+                  <input 
+                    type="date" 
+                    id="date-from"
+                    name="date-from"
+                    class="events__date-input"
+                    aria-label="Filter events from date"
+                  >
+                </div>
+                <span class="events__date-separator" aria-hidden="true">to</span>
+                <div class="events__date-field">
+                  <label for="date-to" class="sr-only">To date</label>
+                  <input 
+                    type="date" 
+                    id="date-to"
+                    name="date-to"
+                    class="events__date-input"
+                    aria-label="Filter events to date"
+                  >
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          
+          <div class="events__view-toggle" role="group" aria-label="Calendar view options">
+            <button 
+              type="button" 
+              class="events__view-btn events__view-btn--active"
+              data-view="grid"
+              aria-pressed="true"
+              aria-label="Grid view"
+            >
+              <span aria-hidden="true">Grid</span>
+            </button>
+            <button 
+              type="button" 
+              class="events__view-btn"
+              data-view="month"
+              aria-pressed="false"
+              aria-label="Month view"
+            >
+              <span aria-hidden="true">Month</span>
+            </button>
+            <button 
+              type="button" 
+              class="events__view-btn"
+              data-view="week"
+              aria-pressed="false"
+              aria-label="Week view"
+            >
+              <span aria-hidden="true">Week</span>
+            </button>
+            <button 
+              type="button" 
+              class="events__view-btn"
+              data-view="day"
+              aria-pressed="false"
+              aria-label="Day view"
+            >
+              <span aria-hidden="true">Day</span>
+            </button>
+          </div>
+        </div>
+        
+        <div 
+          class="events__loading" 
+          role="status" 
+          aria-live="polite" 
+          aria-atomic="true"
+          style="display: none;"
+        >
+          <div class="events__spinner" aria-hidden="true"></div>
+          <span class="sr-only">Loading events...</span>
+        </div>
+        
+        <div 
+          class="events__error" 
+          role="alert" 
+          aria-live="assertive"
+          style="display: none;"
+        >
+          <p class="events__error-message"></p>
+          <button type="button" class="events__retry-btn">Retry</button>
+        </div>
+        
+        <div class="events__results">
+          <div 
+            class="events__count" 
+            role="status" 
+            aria-live="polite" 
+            aria-atomic="true"
+          >
+            <span id="events-count">0</span> events found
+          </div>
+          
+          <div class="events__grid-view" data-view-content="grid">
+            <ul class="events__list" role="list" id="events-list">
+              <!-- Events will be dynamically inserted here -->
+            </ul>
+          </div>
+          
+          <div class="events__calendar-view" data-view-content="month" style="display: none;">
+            <div class="calendar" role="region" aria-label="Monthly calendar view">
+              <div class="calendar__header">
+                <button 
+                  type="button" 
+                  class="calendar__nav-btn"
+                  data-nav="prev"
+                  aria-label="Previous month"
+                >
+                  <span aria-hidden="true">&laquo;</span>
+                </button>
+                <h2 class="calendar__title" id="calendar-month-title"></h2>
+                <button 
+                  type="button" 
+                  class="calendar__nav-btn"
+                  data-nav="next"
+                  aria-label="Next month"
+                >
+                  <span aria-hidden="true">&raquo;</span>
+                </button>
+              </div>
+              <div class="calendar__grid" id="calendar-month-grid">
+                <!-- Calendar grid will be dynamically generated -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="events__calendar-view" data-view-content="week" style="display: none;">
+            <div class="calendar" role="region" aria-label="Weekly calendar view">
+              <div class="calendar__header">
+                <button 
+                  type="button" 
+                  class="calendar__nav-btn"
+                  data-nav="prev"
+                  aria-label="Previous week"
+                >
+                  <span aria-hidden="true">&laquo;</span>
+                </button>
+                <h2 class="calendar__title" id="calendar-week-title"></h2>
+                <button 
+                  type="button" 
+                  class="calendar__nav-btn"
+                  data-nav="next"
+                  aria-label="Next week"
+                >
+                  <span aria-hidden="true">&raquo;</span>
+                </button>
+              </div>
+              <div class="calendar__week" id="calendar-week-grid">
+                <!-- Week view will be dynamically generated -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="events__calendar-view" data-view-content="day" style="display: none;">
+            <div class="calendar" role="region" aria-label="Daily calendar view">
+              <div class="calendar__header">
+                <button 
+                  type="button" 
+                  class="calendar__nav-btn"
+                  data-nav="prev"
+                  aria-label="Previous day"
+                >
+                  <span aria-hidden="true">&laquo;</span>
+                </button>
+                <h2 class="calendar__title" id="calendar-day-title"></h2>
+                <button 
+                  type="button" 
+                  class="calendar__nav-btn"
+                  data-nav="next"
+                  aria-label="Next day"
+                >
+                  <span aria-hidden="true">&raquo;</span>
+                </button>
+              </div>
+              <div class="calendar__day" id="calendar-day-grid">
+                <!-- Day view will be dynamically generated -->
+              </div>
+            </div>
+          </div>
+          
+          <div 
+            class="events__empty" 
+            role="status" 
+            aria-live="polite"
+            style="display: none;"
+          >
+            <p>No events found matching your criteria.</p>
+            <button type="button" class="events__clear-filters-btn">Clear Filters</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <dialog 
+    class="event-modal" 
+    id="event-modal"
+    role="dialog" 
+    aria-modal="true" 
+    aria-labelledby="modal-title"
+    aria-describedby="modal-description"
+  >
+    <div class="event-modal__content">
+      <header class="event-modal__header">
+        <h2 id="modal-title" class="event-modal__title"></h2>
+        <button 
+          type="button" 
+          class="event-modal__close"
+          aria-label="Close event details"
+          onclick="document.getElementById('event-modal').close()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </header>
+      
+      <div class="event-modal__body">
+        <div class="event-modal__image-container">
+          <img 
+            id="modal-image"
+            class="event-modal__image"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        
+        <div class="event-modal__details">
+          <div class="event-modal__meta">
+            <time id="modal-date" class="event-modal__date" datetime=""></time>
+            <span id="modal-time" class="event-modal__time"></span>
+            <span id="modal-category" class="event-modal__category"></span>
+          </div>
+          
+          <div id="modal-description" class="event-modal__description"></div>
+          
+          <div id="modal-location" class="event-modal__location"></div>
+        </div>
+      </div>
+      
+      <footer class="event-modal__footer">
+        <div class="event-modal__actions">
+          <button 
+            type="button" 
+            id="add-google-calendar"
+            class="event-modal__btn event-modal__btn--primary"
+            aria-label="Add to Google Calendar"
+          >
+            <span aria-hidden="true">📅</span>
+            Add to Google Calendar
+          </button>
+          <button 
+            type="button" 
+            id="download-ical"
+            class="event-modal__btn event-modal__btn--secondary"
+            aria-label="Download iCal file"
+          >
+            <span aria-hidden="true">📥</span>
+            Download iCal
+          </button>
+        </div>
+      </footer>
+    </div>
+  </dialog>
+  
+  <footer class="footer" role="contentinfo">
+    <div class="footer__container">
+      <p class="footer__copyright">
+        &copy; 2024 Grace Fellowship Church. All rights reserved.
+      </p>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul class="footer__links" role="list">
+          <li><a href="/" class="footer__link">Home</a></li>
+          <li><a href="/about.html" class="footer__link">About</a></li>
+          <li><a href="/events.html" class="footer__link">Events</a></li>
+          <li><a href="/contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
