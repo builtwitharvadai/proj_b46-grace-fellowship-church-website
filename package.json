@@ -9,7 +9,11 @@
     "build": "npm run build:css && npm run build:js",
     "build:css": "postcss src/css/main.css -o dist/css/main.min.css",
     "build:js": "terser src/js/main.js -o dist/js/main.min.js --compress --mangle",
-    "lint": "eslint src/js/**/*.js"
+    "build:optimize": "node build/optimize.js",
+    "lint": "eslint src/js/**/*.js",
+    "test:a11y": "node -e \"console.log('Accessibility testing with axe-core - run via browser DevTools or CI')\"",
+    "test:perf": "node -e \"console.log('Performance testing - use Lighthouse CLI or browser DevTools')\"",
+    "analyze:bundle": "node -e \"const fs=require('fs');const path=require('path');const distDir='dist';if(fs.existsSync(distDir)){const files=fs.readdirSync(distDir,{recursive:true});files.forEach(f=>{const fp=path.join(distDir,f);if(fs.statSync(fp).isFile()){const size=fs.statSync(fp).size;console.log(`${f}: ${(size/1024).toFixed(2)}KB`)}})}else{console.log('Run build first')}\""
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
